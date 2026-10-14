@@ -161,21 +161,21 @@
         <g class="float" style="animation-delay:.9s">
           <rect x="348" y="164" width="64" height="20" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
           <g fill="none" stroke="#EA580C" stroke-width="1.5" stroke-linecap="round">
-            <path d="M353.5 171.5 a13 13 0 0 1 17 0"/>
-            <path d="M356.5 174.5 a9 9 0 0 1 11 0"/>
-            <path d="M359.5 177.5 a5 5 0 0 1 5 0"/>
+            <path class="wifi-a3" d="M353.5 171.5 a13 13 0 0 1 17 0"/>
+            <path class="wifi-a2" d="M356.5 174.5 a9 9 0 0 1 11 0"/>
+            <path class="wifi-a1" d="M359.5 177.5 a5 5 0 0 1 5 0"/>
           </g>
-          <circle cx="362" cy="181" r="1.4" fill="#EA580C"/>
+          <circle class="wifi-dot" cx="362" cy="181" r="1.4" fill="#EA580C"/>
           <text x="376" y="178" class="chip-lbl">Wi-Fi</text>
         </g>
         <g class="float" style="animation-delay:1.5s">
           <rect x="788" y="164" width="64" height="20" rx="10" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
           <g fill="none" stroke="#EA580C" stroke-width="1.5" stroke-linecap="round">
-            <path d="M793.5 171.5 a13 13 0 0 1 17 0"/>
-            <path d="M796.5 174.5 a9 9 0 0 1 11 0"/>
-            <path d="M799.5 177.5 a5 5 0 0 1 5 0"/>
+            <path class="wifi-a3" d="M793.5 171.5 a13 13 0 0 1 17 0"/>
+            <path class="wifi-a2" d="M796.5 174.5 a9 9 0 0 1 11 0"/>
+            <path class="wifi-a1" d="M799.5 177.5 a5 5 0 0 1 5 0"/>
           </g>
-          <circle cx="802" cy="181" r="1.4" fill="#EA580C"/>
+          <circle class="wifi-dot" cx="802" cy="181" r="1.4" fill="#EA580C"/>
           <text x="816" y="178" class="chip-lbl">Wi-Fi</text>
         </g>
 
@@ -559,12 +559,90 @@
     }
   }
 
+  /* Wi-Fi signal fills up from the dot outwards, then resets */
+  .wifi-dot,
+  .wifi-a1,
+  .wifi-a2,
+  .wifi-a3 {
+    animation-duration: 2.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  .wifi-dot {
+    animation-name: eco-wifi-0;
+  }
+  .wifi-a1 {
+    animation-name: eco-wifi-1;
+  }
+  .wifi-a2 {
+    animation-name: eco-wifi-2;
+  }
+  .wifi-a3 {
+    animation-name: eco-wifi-3;
+  }
+  @keyframes eco-wifi-0 {
+    0%,
+    3% {
+      opacity: 0;
+    }
+    9%,
+    93% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes eco-wifi-1 {
+    0%,
+    21% {
+      opacity: 0;
+    }
+    27%,
+    93% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes eco-wifi-2 {
+    0%,
+    41% {
+      opacity: 0;
+    }
+    47%,
+    93% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes eco-wifi-3 {
+    0%,
+    61% {
+      opacity: 0;
+    }
+    67%,
+    93% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .flow,
     .float,
     .fan-blades,
     .eco-car,
-    .led {
+    .led,
+    .wifi-dot,
+    .wifi-a1,
+    .wifi-a2,
+    .wifi-a3 {
       animation: none;
     }
     .eco-car {
