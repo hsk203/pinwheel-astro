@@ -68,20 +68,57 @@
 
         <!-- ============ traveling packets ============ -->
         <g class="pkts">
+          <!-- cloud -> router -->
           <circle class="pkt" r="3.2" fill="#F97316">
             <animateMotion dur="1.6s" repeatCount="indefinite" path="M600 76 L600 146"/>
           </circle>
+          <!-- router -> branch bus -> left gateway -->
           <circle class="pkt" r="3.2" fill="#FB923C">
             <animateMotion dur="2.6s" repeatCount="indefinite" path="M600 170 L600 215 L490 215 L490 300"/>
           </circle>
+          <!-- router -> branch bus -> right gateway -->
           <circle class="pkt" r="3" fill="#FBBF24">
             <animateMotion dur="2s" begin="0.9s" repeatCount="indefinite" path="M600 215 L710 215 L710 300"/>
           </circle>
+          <!-- right gateway -> device bus -> matter -->
           <circle class="pkt" r="3" fill="#FB923C">
             <animateMotion dur="3.4s" repeatCount="indefinite" path="M710 376 L710 480 L1020 480 L1020 456"/>
           </circle>
+          <!-- cloud -> mobile phone -->
           <circle class="pkt" r="3" fill="#F97316">
             <animateMotion dur="3s" repeatCount="indefinite" path="M645 54 L1020 54"/>
+          </circle>
+          <!-- mobile phone -> cloud (return) -->
+          <circle class="pkt" r="2.8" fill="#FBBF24">
+            <animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M1020 54 L645 54"/>
+          </circle>
+          <!-- branch bus -> voice control box -->
+          <circle class="pkt" r="2.8" fill="#FB923C">
+            <animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite" path="M600 215 L180 215 L180 265"/>
+          </circle>
+          <!-- branch bus -> ecosystem box -->
+          <circle class="pkt" r="2.8" fill="#FBBF24">
+            <animateMotion dur="2.2s" begin="0.4s" repeatCount="indefinite" path="M600 215 L1020 215 L1020 265"/>
+          </circle>
+          <!-- voice control box -> tuya zone -->
+          <circle class="pkt" r="2.6" fill="#F97316">
+            <animateMotion dur="1.2s" repeatCount="indefinite" path="M300 325 L350 325"/>
+          </circle>
+          <!-- left gateway -> device bus -> wire-free switch -->
+          <circle class="pkt" r="2.8" fill="#FB923C">
+            <animateMotion dur="3.2s" begin="0.6s" repeatCount="indefinite" path="M490 376 L490 480 L100 480 L100 492"/>
+          </circle>
+          <!-- device bus sweep to the control panel -->
+          <circle class="pkt" r="2.8" fill="#F97316">
+            <animateMotion dur="3s" begin="1.8s" repeatCount="indefinite" path="M710 480 L1100 480 L1100 492"/>
+          </circle>
+          <!-- device bus -> IR sub bus -> fan -->
+          <circle class="pkt" r="2.8" fill="#FBBF24">
+            <animateMotion dur="3s" begin="0.8s" repeatCount="indefinite" path="M490 480 L655 480 L655 580 L560 580 L560 592"/>
+          </circle>
+          <!-- IR sub bus -> RF remote -->
+          <circle class="pkt" r="2.6" fill="#FB923C">
+            <animateMotion dur="1.9s" begin="1.6s" repeatCount="indefinite" path="M655 580 L750 580 L750 592"/>
           </circle>
         </g>
 
