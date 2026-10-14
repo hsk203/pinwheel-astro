@@ -5,8 +5,8 @@ banner:
   image: /images/banner-img.png
   button:
     enable: true
-    label: Explore Products
-    link: "#"
+    label: Ask For Product Catalog
+    link: "#contact"
 
 ##key features
 key_features:
