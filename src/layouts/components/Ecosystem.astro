@@ -339,14 +339,16 @@
           <circle cx="560" cy="539" r="3.5" fill="none" stroke="#F97316" stroke-width="1.5"/>
           <text x="560" y="578" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- garage (a car noses out of the door) -->
+        <!-- garage (a car drives out to the left, nose first) -->
         <g>
           <path d="M637 535 L655 522 L673 535" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
           <g class="eco-car">
-            <rect x="647" y="537" width="16" height="11" rx="4" fill="#F97316"/>
-            <rect x="649.5" y="539" width="11" height="3.5" rx="1.5" fill="#FFEDD5"/>
-            <circle cx="650.5" cy="545" r="1.2" fill="#FEF3C7"/>
-            <circle cx="659.5" cy="545" r="1.2" fill="#FEF3C7"/>
+            <path d="M649 546 L651.5 541.5 Q652 541 653 541 L658.5 541 Q659.5 541 660 541.5 L662.5 546 Z" fill="#F97316"/>
+            <rect x="644" y="546" width="20" height="7" rx="2.5" fill="#F97316"/>
+            <path d="M650.8 545.6 L652.7 542.6 L656.8 542.6 L658.6 545.6 Z" fill="#FFEDD5"/>
+            <circle cx="645.8" cy="549" r="1.1" fill="#FEF3C7"/>
+            <circle cx="648.5" cy="553" r="2" fill="#475569"/>
+            <circle cx="659.5" cy="553" r="2" fill="#475569"/>
           </g>
           <rect x="639" y="535" width="32" height="20" rx="2" fill="#fff" stroke="#94A3B8" stroke-width="1.6"/>
           <rect x="648" y="540" width="14" height="15" fill="none" stroke="#F97316" stroke-width="1.4"/>
@@ -513,7 +515,7 @@
     offset-rotate: 0deg;
   }
 
-  /* router LEDs blink in sequence */
+  /* router LEDs fade out to nothing, then fade back in, in sequence */
   .led {
     animation: eco-blink 1.5s ease-in-out infinite;
   }
@@ -522,8 +524,9 @@
     100% {
       opacity: 1;
     }
-    45% {
-      opacity: 0.16;
+    45%,
+    55% {
+      opacity: 0;
     }
   }
 
@@ -538,21 +541,21 @@
     }
   }
 
-  /* a car noses out of the garage door, waits, then backs in */
+  /* a car noses out of the garage to the left, waits, then backs in */
   .eco-car {
     animation: eco-car 4.4s ease-in-out infinite;
   }
   @keyframes eco-car {
     0%,
     12% {
-      transform: translateY(0);
+      transform: translateX(0);
     }
     46%,
     80% {
-      transform: translateY(16px);
+      transform: translateX(-16px);
     }
     100% {
-      transform: translateY(0);
+      transform: translateX(0);
     }
   }
 
@@ -565,7 +568,7 @@
       animation: none;
     }
     .eco-car {
-      transform: translateY(16px);
+      transform: translateX(-16px);
     }
     .pkts {
       display: none;
