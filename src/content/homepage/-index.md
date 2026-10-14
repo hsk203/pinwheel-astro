@@ -1,12 +1,12 @@
 ---
 banner:
-  title: "Scale design & dev operations with Avocode Enterprise"
-  content: "A fully integrated suite of authentication & authoriz products, Stytch’s platform removes the headache of."
+  title: "**Connect, Control, and Build Your Smart Home** — Anytime, Anywhere"
+  content: "Switchlivo smart switch panels and smart sockets put every light and appliance in your home under one touch. Upgrade to a smart home without rewiring — easy for any household."
   image: /images/banner-img.png
   button:
     enable: true
-    label: Download The Theme
-    link: "https://themefisher.com/astro-themes/pinwheel-astro"
+    label: Explore Products
+    link: "#"
 
 ##key features
 key_features:
