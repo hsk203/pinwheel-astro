@@ -1,7 +1,7 @@
 ---
 banner:
   title: "**Connect, Control, and Build Your Smart Home** — Anytime, Anywhere"
-  content: "Specializing in smart home, smart hotel, and smart lighting. With a complete ecosystem — a factory-direct manufacturer integrating R&D, production, and sales."
+  content: "Specializing in smart home, smart hotel, and smart lighting. With a complete ecosystem — an OEM & ODM manufacturer integrating R&D, production, and sales."
   image: /images/banner-img.png
   button:
     enable: true
