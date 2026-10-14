@@ -1,7 +1,7 @@
 ---
 banner:
   title: "**Connect, Control, and Build Your Smart Home** — Anytime, Anywhere"
-  content: "Switchlivo smart switch panels and smart sockets put every light and appliance in your home under one touch. Upgrade to a smart home without rewiring — easy for any household."
+  content: "Specializing in smart home, smart hotel, and smart lighting. With a complete ecosystem, we are a factory-direct manufacturer integrating R&D, production, and sales."
   image: /images/banner-img.png
   button:
     enable: true
