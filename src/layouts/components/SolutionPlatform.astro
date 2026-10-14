@@ -1,0 +1,138 @@
+---
+// Rotating-headline strip placed directly under the hero banner.
+// Static "frame" lines stay fixed; the middle two lines cycle through pairs,
+// mirroring the reference site's animated headline block.
+---
+
+<section class="section platform-strip" aria-label="Our solution platform">
+  <div class="container">
+    <div class="platform-text">
+      <p class="platform-static">Our solution platform is built for</p>
+
+      <div class="platform-rotor">
+        <div class="platform-pair">
+          <span class="platform-line">Hotels · Residences · Offices</span>
+          <span class="platform-line">and every business type.</span>
+        </div>
+        <div class="platform-pair">
+          <span class="platform-line">
+            Certifications · Eco Standards · Technical Specs
+          </span>
+          <span class="platform-line">and every compliance requirement.</span>
+        </div>
+        <div class="platform-pair">
+          <span class="platform-line">OEM &amp; ODM Projects</span>
+          <span class="platform-line">from R&amp;D to mass production.</span>
+        </div>
+      </div>
+
+      <p class="platform-static">— all in one ecosystem.</p>
+
+      <p class="platform-sub">
+        One complete ecosystem for smart hotels, homes, and offices — covering
+        certifications, eco standards, and technical parameters, with full OEM
+        &amp; ODM flexibility.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .platform-strip {
+    background: #ffffff;
+  }
+
+  .platform-text {
+    max-width: 60rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .platform-static {
+    margin: 0;
+    font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1f2937;
+  }
+
+  /* stacked grid: all pairs share one cell, container sizes to the tallest */
+  .platform-rotor {
+    display: grid;
+    margin: 0.3em 0;
+  }
+
+  .platform-pair {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.08em;
+    opacity: 0;
+    animation: platform-rotor 7.5s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+  .platform-pair:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .platform-pair:nth-child(2) {
+    animation-delay: 2.5s;
+  }
+  .platform-pair:nth-child(3) {
+    animation-delay: 5s;
+  }
+
+  .platform-line {
+    font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background-image: linear-gradient(to left, #f97316, #fb923c, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .platform-sub {
+    max-width: 46rem;
+    margin: 1.6rem auto 0;
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.7;
+    color: #374151;
+  }
+
+  @keyframes platform-rotor {
+    0% {
+      opacity: 0;
+      transform: translateY(0.5em);
+    }
+    5% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    36% {
+      opacity: 0;
+      transform: translateY(-0.5em);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-0.5em);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .platform-pair {
+      animation: none;
+      opacity: 0;
+    }
+    .platform-pair:nth-child(1) {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

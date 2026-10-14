@@ -1,6 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import Banner from "@/layouts/components/Banner.astro";
+import SolutionPlatform from "@/layouts/components/SolutionPlatform.astro";
 import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
 import Service from "@/layouts/components/Service.astro";
 import Testimonial from "@/layouts/components/Testimonial.astro";
@@ -17,6 +18,7 @@ const { banner, key_features, service, testimonial } = homepage.data;
 
 <Base>
   <Banner banner={banner} />
+  <SolutionPlatform />
   <KeyFeatures key_features={key_features} />
   <Service service={service} />
   <Testimonial testimonial={testimonial} />
