@@ -41,6 +41,14 @@ const { title, button, content } = banner;
     color: #374151;
   }
 
+  /* let the subtitle extend past the column so it wraps to two lines (font size unchanged) */
+  @media (min-width: 1024px) {
+    .banner-subtitle {
+      margin-right: -9rem;
+      max-width: none;
+    }
+  }
+
   .banner-cta {
     transition:
       transform 0.25s ease,
