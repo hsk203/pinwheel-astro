@@ -14,7 +14,7 @@ const { title, button, image, content } = banner;
           set:html={markdownify(title)}
         />
 
-        <p class="mt-6" set:html={markdownify(content)} />
+        <p class="banner-subtitle mt-6" set:html={markdownify(content)} />
 
         {
           button.enable && (
@@ -44,3 +44,9 @@ const { title, button, image, content } = banner;
     height={466}
   />
 </section>
+
+<style>
+  .banner-subtitle {
+    color: #4b5563;
+  }
+</style>
