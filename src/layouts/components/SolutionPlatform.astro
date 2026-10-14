@@ -11,18 +11,19 @@
 
       <div class="platform-rotor">
         <div class="platform-pair">
-          <span class="platform-line">Hotels · Residences · Offices</span>
-          <span class="platform-line">and every business type.</span>
+          <span class="platform-line">
+            Hotels, Residences &amp; Offices — any business type
+          </span>
         </div>
         <div class="platform-pair">
           <span class="platform-line">
-            Certifications · Eco Standards · Technical Specs
+            Any certification, eco standard, or tech spec
           </span>
-          <span class="platform-line">and every compliance requirement.</span>
         </div>
         <div class="platform-pair">
-          <span class="platform-line">OEM &amp; ODM Projects</span>
-          <span class="platform-line">from R&amp;D to mass production.</span>
+          <span class="platform-line">
+            OEM &amp; ODM projects — from R&amp;D to mass production
+          </span>
         </div>
       </div>
 
@@ -43,14 +44,14 @@
   }
 
   .platform-text {
-    max-width: 60rem;
+    max-width: none;
     margin-inline: auto;
     text-align: center;
   }
 
   .platform-static {
     margin: 0;
-    font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
     line-height: 1.25;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -84,7 +85,7 @@
   }
 
   .platform-line {
-    font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
     line-height: 1.25;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -92,6 +93,13 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* desktop: one sentence, one line, never wraps */
+  @media (min-width: 1024px) {
+    .platform-line {
+      white-space: nowrap;
+    }
   }
 
   .platform-sub {
