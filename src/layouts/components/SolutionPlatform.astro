@@ -7,7 +7,7 @@
 <section class="section platform-strip" aria-label="Our solution platform">
   <div class="container">
     <div class="platform-text">
-      <p class="platform-static">Our solution platform is built for</p>
+      <p class="platform-static">Our solution platform works with</p>
 
       <div class="platform-rotor">
         <div class="platform-pair">
@@ -17,7 +17,7 @@
         </div>
         <div class="platform-pair">
           <span class="platform-line">
-            Tuya Smart, Matter, HarmonyOS Connect, Mijia, KNX, BLE Mesh
+            Tuya, Matter, HarmonyOS Connect, Xiaomi Mijia, KNX &amp; BLE Mesh
           </span>
         </div>
       </div>
@@ -36,6 +36,11 @@
 <style>
   .platform-strip {
     background: #ffffff;
+  }
+
+  /* this strip only: a bit more room so the longest rotating line never clips */
+  .platform-strip .container {
+    max-width: 1360px !important;
   }
 
   .platform-text {
