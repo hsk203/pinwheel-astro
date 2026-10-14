@@ -1,0 +1,231 @@
+---
+// Pure CSS/SVG animated globe — no JS libraries, static-build friendly.
+---
+
+<div class="globe-wrap" aria-hidden="true">
+  <!-- glow behind globe -->
+  <div class="globe-glow"></div>
+
+  <svg class="globe" viewBox="0 0 400 400" fill="none">
+    <defs>
+      <radialGradient id="globeSphere" cx="35%" cy="30%" r="80%">
+        <stop offset="0%" stop-color="#fff7ed" />
+        <stop offset="45%" stop-color="#fed7aa" />
+        <stop offset="100%" stop-color="#fb923c" />
+      </radialGradient>
+      <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#f97316" stop-opacity="0" />
+        <stop offset="50%" stop-color="#f97316" stop-opacity="1" />
+        <stop offset="100%" stop-color="#f97316" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+
+    <!-- sphere -->
+    <circle cx="200" cy="200" r="150" fill="url(#globeSphere)" opacity="0.92" />
+
+    <!-- latitude lines -->
+    <g stroke="#c2410c" stroke-opacity="0.28" stroke-width="1.2">
+      <ellipse cx="200" cy="200" rx="150" ry="52" />
+      <ellipse cx="200" cy="200" rx="150" ry="100" />
+      <ellipse cx="200" cy="200" rx="150" ry="138" />
+      <line x1="50" y1="200" x2="350" y2="200" />
+    </g>
+
+    <!-- rotating meridians: two groups spinning opposite ways for a 3D feel -->
+    <g class="spin-slow" stroke="#c2410c" stroke-opacity="0.3" stroke-width="1.2">
+      <ellipse cx="200" cy="200" rx="52" ry="150" />
+      <ellipse cx="200" cy="200" rx="100" ry="150" />
+      <ellipse cx="200" cy="200" rx="138" ry="150" />
+    </g>
+    <g class="spin-rev" stroke="#9a3412" stroke-opacity="0.16" stroke-width="1">
+      <ellipse cx="200" cy="200" rx="76" ry="150" />
+      <ellipse cx="200" cy="200" rx="122" ry="150" />
+    </g>
+
+    <!-- outer orbit ring -->
+    <g class="spin-orbit">
+      <circle cx="200" cy="200" r="182" stroke="#f97316" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 9" />
+      <circle class="orbit-dot" cx="200" cy="18" r="5" fill="#f97316" />
+    </g>
+
+    <!-- connection arcs with travelling dash -->
+    <g stroke="url(#arcGrad)" stroke-width="2" stroke-linecap="round" fill="none">
+      <path class="arc arc-1" d="M110 260 Q 200 60 300 230" />
+      <path class="arc arc-2" d="M140 130 Q 230 190 320 150" />
+      <path class="arc arc-3" d="M90 180 Q 180 300 280 290" />
+    </g>
+
+    <!-- location nodes -->
+    <g>
+      <circle class="node node-1" cx="110" cy="260" r="6" fill="#ea580c" />
+      <circle class="node node-2" cx="300" cy="230" r="6" fill="#ea580c" />
+      <circle class="node node-3" cx="140" cy="130" r="6" fill="#ea580c" />
+      <circle class="node node-4" cx="320" cy="150" r="6" fill="#ea580c" />
+      <circle class="node node-5" cx="90" cy="180" r="6" fill="#ea580c" />
+      <circle class="node node-6" cx="280" cy="290" r="6" fill="#ea580c" />
+      <!-- ping halos -->
+      <circle class="ping ping-1" cx="110" cy="260" r="6" fill="none" stroke="#ea580c" />
+      <circle class="ping ping-2" cx="300" cy="230" r="6" fill="none" stroke="#ea580c" />
+      <circle class="ping ping-3" cx="140" cy="130" r="6" fill="none" stroke="#ea580c" />
+      <circle class="ping ping-4" cx="320" cy="150" r="6" fill="none" stroke="#ea580c" />
+      <circle class="ping ping-5" cx="90" cy="180" r="6" fill="none" stroke="#ea580c" />
+      <circle class="ping ping-6" cx="280" cy="290" r="6" fill="none" stroke="#ea580c" />
+    </g>
+  </svg>
+
+  <!-- floating chip -->
+  <div class="chip chip-1">
+    <span class="chip-dot"></span>
+    <div>
+      <div class="chip-title">Smart Devices Online</div>
+      <div class="chip-value">2,400,000+</div>
+    </div>
+  </div>
+  <div class="chip chip-2">
+    <span class="chip-dot chip-dot-amber"></span>
+    <div>
+      <div class="chip-title">Countries &amp; Regions</div>
+      <div class="chip-value">80+</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .globe-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .globe-glow {
+    position: absolute;
+    inset: -8%;
+    background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.18), transparent 65%);
+    filter: blur(10px);
+  }
+
+  .globe {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* slow meridian spin (fake 3D rotation via scaleX oscillation) */
+  .spin-slow {
+    transform-origin: 200px 200px;
+    animation: meridian 14s linear infinite;
+  }
+  .spin-rev {
+    transform-origin: 200px 200px;
+    animation: meridian 14s linear infinite reverse;
+  }
+  @keyframes meridian {
+    from { transform: scaleX(1); }
+    25%  { transform: scaleX(0.06); }
+    50%  { transform: scaleX(1); }
+    75%  { transform: scaleX(0.06); }
+    to   { transform: scaleX(1); }
+  }
+
+  .spin-orbit {
+    transform-origin: 200px 200px;
+    animation: orbit 20s linear infinite;
+  }
+  @keyframes orbit {
+    to { transform: rotate(360deg); }
+  }
+
+  /* arcs: travelling light */
+  .arc {
+    stroke-dasharray: 40 300;
+    animation: dash 4s linear infinite;
+  }
+  .arc-2 { animation-duration: 5s; animation-delay: 0.8s; }
+  .arc-3 { animation-duration: 4.6s; animation-delay: 1.6s; }
+  @keyframes dash {
+    from { stroke-dashoffset: 340; }
+    to   { stroke-dashoffset: 0; }
+  }
+
+  /* nodes gentle pulse */
+  .node { animation: nodePulse 2.4s ease-in-out infinite; }
+  .node-2 { animation-delay: 0.4s; }
+  .node-3 { animation-delay: 0.8s; }
+  .node-4 { animation-delay: 1.2s; }
+  .node-5 { animation-delay: 1.6s; }
+  .node-6 { animation-delay: 2s; }
+  @keyframes nodePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+
+  /* radar ping halos */
+  .ping {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: ping 2.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  .ping-2 { animation-delay: 0.5s; }
+  .ping-3 { animation-delay: 1s; }
+  .ping-4 { animation-delay: 1.5s; }
+  .ping-5 { animation-delay: 2s; }
+  .ping-6 { animation-delay: 2.5s; }
+  @keyframes ping {
+    0% { transform: scale(1); opacity: 0.8; }
+    80%, 100% { transform: scale(3.2); opacity: 0; }
+  }
+
+  /* floating info chips */
+  .chip {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(249, 115, 22, 0.15);
+    border-radius: 14px;
+    padding: 0.65rem 0.9rem;
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.08);
+    animation: floaty 6s ease-in-out infinite;
+  }
+  .chip-1 { top: 8%; left: -4%; }
+  .chip-2 { bottom: 6%; right: -2%; animation-delay: 1.4s; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+  }
+
+  .chip-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #22c55e;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+    flex: none;
+  }
+  .chip-dot-amber {
+    background: #f97316;
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.18);
+  }
+  .chip-title {
+    font-size: 0.7rem;
+    line-height: 1.1;
+    color: #6b7280;
+    white-space: nowrap;
+  }
+  .chip-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1023px) {
+    .globe-wrap { max-width: 380px; margin-top: 2.5rem; }
+    .chip-1 { left: 0; }
+    .chip-2 { right: 0; }
+  }
+</style>
