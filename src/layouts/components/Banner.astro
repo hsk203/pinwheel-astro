@@ -9,10 +9,7 @@ const { title, button, content } = banner;
   <div class="container">
     <div class="row items-center">
       <div class="lg:col-6">
-        <h1
-          class="banner-title [&>strong]:bg-gradient-to-l [&>strong]:from-[#F97316] [&>strong]:via-[#FB923C] [&>strong]:to-[#FBBF24] [&>strong]:bg-clip-text [&>strong]:text-transparent"
-          set:html={markdownify(title)}
-        />
+        <h1 class="banner-title" set:html={markdownify(title)} />
 
         <p class="banner-subtitle mt-6" set:html={markdownify(content)} />
 
@@ -35,6 +32,22 @@ const { title, button, content } = banner;
   /* pull the hero closer to the navbar, like the reference site */
   .banner {
     padding-top: 2rem;
+  }
+
+  /* ---- orange gradient on the bold lead-in of the headline ----
+     Kept global (the class name is unique to this component) because
+     Astro's scoped selectors cannot reach the <strong> that markdownify
+     injects — and cannot reach the <font> nodes the browser's page
+     translator wraps text runs in, which is what breaks
+     background-clip:text if only the <strong> itself were styled. */
+  :global(.banner-title strong),
+  :global(.banner-title strong *) {
+    background-image: linear-gradient(to left, #f97316, #fb923c, #fbbf24);
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
   .banner-subtitle {
