@@ -157,16 +157,10 @@
           <circle class="led" cx="572" cy="132" r="2.4" fill="#F97316" style="animation-delay:0s"/>
           <circle class="led" cx="583" cy="132" r="2.4" fill="#FBBF24" style="animation-delay:.25s"/>
           <circle class="led" cx="594" cy="132" r="2.4" fill="#22C55E" style="animation-delay:.5s"/>
+          <!-- internal module slot / cabinet -->
+          <rect x="612" y="124" width="22" height="16" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
+          <circle class="led" cx="618" cy="132" r="1.6" fill="#F97316" style="animation-delay:.15s"/>
           <text x="600" y="160" text-anchor="middle" class="lbl halo">Router</text>
-        </g>
-
-        <!-- ============ controller cabinet ============ -->
-        <g class="float" style="animation-delay:.45s">
-          <rect x="652" y="112" width="44" height="32" rx="5" fill="#fff" stroke="#94A3B8" stroke-width="1.8"/>
-          <line x1="674" y1="118" x2="674" y2="138" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
-          <circle class="led" cx="662" cy="128" r="2.2" fill="#F97316" style="animation-delay:0s"/>
-          <circle class="led" cx="672" cy="128" r="2.2" fill="#22C55E" style="animation-delay:.3s"/>
-          <text x="674" y="160" text-anchor="middle" class="lbl halo">Server</text>
         </g>
 
         <!-- wi-fi chips on the branch bus -->
@@ -484,9 +478,8 @@
         <g>
           <!-- side columns / wall edges -->
           <path d="M630 522 V560 M684 522 V560" fill="none" stroke="#94A3B8" stroke-width="1.6"/>
-          <!-- header band (wall block above the door) -->
+          <!-- header band (simple wall block above the door) -->
           <rect x="630" y="522" width="54" height="12" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
-          <path d="M632 526 H682 M632 530 H682" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
           <!-- garage door -->
           <rect x="638" y="536" width="38" height="24" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
           <!-- car: hidden behind the wall, appears at the door's left edge, then pulls out -->
