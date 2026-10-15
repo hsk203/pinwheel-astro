@@ -8,6 +8,16 @@
   @apply mx-auto! max-w-[1202px]! px-3!;
 }
 
+/* Wide track — ecosystem diagram + solution-platform strip.
+   This override MUST live inside @layer components: for !important declarations
+   earlier cascade layers outrank un-layered styles, so an un-layered rule in an
+   Astro component scope can never beat the !important .container above.
+   Same layer + higher specificity = the only reliable way to widen it. */
+.container.eco-wide,
+.platform-strip .container {
+  max-width: 1360px !important;
+}
+
 /* social icons */
 .social-icons {
   @apply space-x-2;

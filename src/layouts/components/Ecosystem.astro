@@ -5,7 +5,7 @@
 ---
 
 <section class="section eco">
-  <div class="container">
+  <div class="container eco-wide">
     <h2 class="eco-heading">Smart Home Communication Mode</h2>
   </div>
 
@@ -260,7 +260,7 @@
         <!-- 3 thermostat -->
         <g class="float" style="animation-delay:.9s">
           <circle cx="300" cy="443" r="17" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <text x="300" y="447" text-anchor="middle" class="lbl" style="font-size:12px; font-weight:600; fill:#475569">26°</text>
+          <text x="300" y="447" text-anchor="middle" class="lbl" style="font-size:12px; font-weight:600; fill:#1b3a6b">26°</text>
           <text x="300" y="482" text-anchor="middle" class="lbl">Thermostat</text>
         </g>
         <!-- 4 curtain motor -->
@@ -411,11 +411,9 @@
     }
   }
 
-  /* the diagram gets a wider track than the page grid so it reads bigger */
-  .eco-wide {
-    max-width: 1360px !important;
-  }
-
+  /* the diagram gets a wider track than the page grid so it reads bigger.
+     the actual max-width lives in src/styles/components.css — it has to sit in
+     the same cascade layer as .container for the !important to win. */
   .eco-figure {
     width: 100%;
     max-width: 100%;
@@ -426,56 +424,58 @@
     height: auto;
   }
 
+  /* All diagram copy is navy blue — one deep tone for the primary labels,
+     one lighter navy tint for the annotations, so hierarchy survives. */
   .lbl {
     font-size: 11.5px;
-    fill: #64748b;
+    fill: #1b3a6b;
   }
   .note {
     font-size: 12px;
     font-style: italic;
-    fill: #94a3b8;
+    fill: #4e6790;
   }
   .row-lbl {
     font-size: 15px;
     font-weight: 600;
-    fill: #1f2937;
+    fill: #1b3a6b;
   }
   .box-head {
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    fill: #94a3b8;
+    fill: #4e6790;
   }
   .chip-lbl {
     font-size: 12.5px;
     font-weight: 600;
-    fill: #ea580c;
+    fill: #1b3a6b;
   }
   .tuya-lbl {
     font-size: 14px;
     font-weight: 700;
-    fill: #c2410c;
+    fill: #1b3a6b;
   }
   .gw-lbl {
     font-size: 14px;
     font-weight: 700;
-    fill: #ea580c;
+    fill: #1b3a6b;
   }
   .gw-lbl2 {
     font-size: 14px;
     font-weight: 600;
-    fill: #475569;
+    fill: #1b3a6b;
   }
   .zigbee-lbl {
     font-size: 14px;
     font-weight: 700;
-    fill: #334155;
+    fill: #1b3a6b;
   }
   .matter-lbl {
     font-size: 15px;
     font-weight: 700;
-    fill: #ea580c;
+    fill: #1b3a6b;
   }
 
   /* text knocked out over dashed lines */

@@ -38,10 +38,9 @@
     background: #ffffff;
   }
 
-  /* this strip only: a bit more room so the longest rotating line never clips */
-  .platform-strip .container {
-    max-width: 1360px !important;
-  }
+  /* this strip only: a bit more room so the longest rotating line never clips.
+     the max-width itself lives in src/styles/components.css — a rule in this
+     scoped <style> can never outrank the layered !important .container. */
 
   .platform-text {
     max-width: none;
