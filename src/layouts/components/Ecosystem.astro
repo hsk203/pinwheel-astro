@@ -138,9 +138,9 @@
           <!-- screen -->
           <rect x="1027.5" y="24.5" width="25" height="43" rx="3.5" fill="#CBD5E1"/>
           <!-- fingerprint reader: pulsing ring + static core, blinking in place -->
-          <circle class="fp-ring" cx="1040" cy="52" r="6.5" fill="none" stroke="#F97316" stroke-width="1.2"/>
-          <circle class="fp-core" cx="1040" cy="52" r="4.2" fill="none" stroke="#F97316" stroke-width="1" opacity=".85"/>
-          <circle cx="1040" cy="52" r="1.6" fill="#F97316"/>
+          <circle class="fp-ring" cx="1040" cy="57" r="5" fill="none" stroke="#F97316" stroke-width="1.2"/>
+          <circle class="fp-core" cx="1040" cy="57" r="4.2" fill="none" stroke="#F97316" stroke-width="1" opacity=".85"/>
+          <circle cx="1040" cy="57" r="1.6" fill="#F97316"/>
           <!-- notch: speaker slit + front camera -->
           <path d="M1034.5 24.5 V25.8 Q1034.5 28 1036.7 28 H1043.3 Q1045.5 28 1045.5 25.8 V24.5 Z" fill="#fff"/>
           <line x1="1037.4" y1="26.3" x2="1040.6" y2="26.3" stroke="#94A3B8" stroke-width="1" stroke-linecap="round"/>
@@ -890,8 +890,19 @@
 
   /* mobile fingerprint reader: ring expands outwards while the inner ring blinks */
   .fp-ring {
-    transform-origin: 1040px 52px;
-    animation: eco-smoke 2.4s ease-out infinite;
+    transform-origin: 1040px 57px;
+    animation: fp-smoke 2.4s ease-out infinite;
+  }
+  @keyframes fp-smoke {
+    0% {
+      transform: scale(0.85);
+      opacity: 0.85;
+    }
+    70%,
+    100% {
+      transform: scale(1.18);
+      opacity: 0;
+    }
   }
   .fp-core {
     animation: eco-blink 1.6s ease-in-out infinite;
