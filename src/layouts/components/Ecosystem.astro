@@ -288,14 +288,42 @@
           </g>
           <text x="400" y="482" text-anchor="middle" class="lbl">Curtain Motor</text>
         </g>
-        <!-- 5 smart door lock -->
+        <!-- 5 smart door lock: keypad + handle with a fingerprint reader -->
         <g class="float" style="animation-delay:1.7s">
-          <rect x="488" y="423" width="24" height="40" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <circle cx="500" cy="437" r="3.5" fill="none" stroke="#F97316" stroke-width="1.5"/>
-          <line x1="500" y1="440" x2="500" y2="449" stroke="#F97316" stroke-width="1.5"/>
-          <line x1="507" y1="441" x2="512" y2="441" stroke="#CBD5E1" stroke-width="1.4"/>
-          <text x="500" y="482" text-anchor="middle" class="lbl">Smart Door</text>
-          <text x="500" y="495" text-anchor="middle" class="lbl">Lock</text>
+          <!-- slim body -->
+          <rect x="487" y="423" width="24" height="40" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <!-- keypad 3 x 4, keys light up in a wave -->
+          <g fill="#94A3B8">
+            <circle class="lock-key" cx="493.5" cy="429.5" r="1.2" style="animation-delay:0s"/>
+            <circle class="lock-key" cx="499" cy="429.5" r="1.2" style="animation-delay:.25s"/>
+            <circle class="lock-key" cx="504.5" cy="429.5" r="1.2" style="animation-delay:.5s"/>
+            <circle class="lock-key" cx="493.5" cy="434" r="1.2" style="animation-delay:.75s"/>
+            <circle class="lock-key" cx="499" cy="434" r="1.2" style="animation-delay:1s"/>
+            <circle class="lock-key" cx="504.5" cy="434" r="1.2" style="animation-delay:1.25s"/>
+            <circle class="lock-key" cx="493.5" cy="438.5" r="1.2" style="animation-delay:1.5s"/>
+            <circle class="lock-key" cx="499" cy="438.5" r="1.2" style="animation-delay:1.75s"/>
+            <circle class="lock-key" cx="504.5" cy="438.5" r="1.2" style="animation-delay:2s"/>
+            <circle class="lock-key" cx="493.5" cy="443" r="1.2" style="animation-delay:2.25s"/>
+            <circle class="lock-key" cx="499" cy="443" r="1.2" style="animation-delay:2.5s"/>
+            <circle class="lock-key" cx="504.5" cy="443" r="1.2" style="animation-delay:2.75s"/>
+          </g>
+          <!-- card slot -->
+          <rect x="494" y="453" width="10" height="6" rx="1.5" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>
+          <!-- handle (presses down after a fingerprint read) -->
+          <g class="lock-handle">
+            <rect x="507.5" y="445.6" width="15" height="4.8" rx="2.4" fill="#94A3B8"/>
+          </g>
+          <!-- fingerprint reader on the handle rose -->
+          <circle cx="505.5" cy="448" r="3.2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.2"/>
+          <g fill="none" stroke="#F97316" stroke-width=".8" stroke-linecap="round">
+            <circle cx="505.5" cy="448" r=".7" fill="#F97316" stroke="none"/>
+            <path d="M504.3 448 a1.2 1.2 0 0 1 2.4 0"/>
+            <path d="M503.6 448.2 a1.9 1.9 0 0 0 3.8 0" stroke-dasharray="2 1.2"/>
+          </g>
+          <!-- expanding fingerprint scan ring -->
+          <circle class="lock-fp-ring" cx="505.5" cy="448" r="5" fill="none" stroke="#F97316" stroke-width="1.2"/>
+          <text x="504" y="482" text-anchor="middle" class="lbl">Smart Door</text>
+          <text x="504" y="495" text-anchor="middle" class="lbl">Lock</text>
         </g>
         <!-- 6 IR remote controller -->
         <g class="float" style="animation-delay:2.1s">
@@ -608,6 +636,43 @@
     animation: eco-spin 4.5s linear infinite;
   }
 
+  /* smart door lock: keypad wave, fingerprint scan, handle release */
+  .lock-key {
+    animation: lock-key 3s linear infinite;
+  }
+  @keyframes lock-key {
+    0%,
+    25%,
+    100% {
+      fill: #94a3b8;
+    }
+    12% {
+      fill: #f97316;
+    }
+  }
+  .lock-fp-ring {
+    transform-origin: 505.5px 448px;
+    animation: eco-smoke 2.2s ease-out infinite;
+  }
+  .lock-handle {
+    transform-origin: 505.5px 448px;
+    animation: lock-turn 4.4s ease-in-out infinite;
+  }
+  @keyframes lock-turn {
+    0%,
+    50%,
+    100% {
+      transform: rotate(0deg);
+    }
+    58%,
+    72% {
+      transform: rotate(14deg);
+    }
+    82% {
+      transform: rotate(0deg);
+    }
+  }
+
   /* circulation fan: the ring head sways left/right, the blades spin inside it */
   .fan-head {
     transform-origin: 560px 550px;
@@ -737,6 +802,9 @@
     .smoke-pulse,
     .smoke-led,
     .curtain-drive,
+    .lock-key,
+    .lock-fp-ring,
+    .lock-handle,
     .wifi-dot,
     .wifi-a1,
     .wifi-a2,
