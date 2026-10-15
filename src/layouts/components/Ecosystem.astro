@@ -45,11 +45,11 @@
           <!-- gateways -> device bus -->
           <path class="flow" d="M490 318 V411"/>
           <path class="flow" d="M710 318 V411"/>
-          <!-- device bus -->
-          <path class="flow" d="M70 411 H1130"/>
+          <!-- device bus (ends flush with the first / last stub) -->
+          <path class="flow" d="M100 411 H1100"/>
           <!-- bus -> sub bus (IR/RF appliances) -->
-          <path class="flow" d="M655 411 V519"/>
-          <path class="flow" d="M545 507 H765"/>
+          <path class="flow" d="M655 411 V511"/>
+          <path class="flow" d="M560 507 H750"/>
           <path class="flow" d="M560 507 V519"/>
           <path class="flow" d="M750 507 V519"/>
           <!-- device stubs -->
@@ -259,20 +259,20 @@
         </g>
         <!-- 3 thermostat -->
         <g class="float" style="animation-delay:.9s">
-          <!-- gold-framed black glass panel -->
-          <rect x="280" y="421" width="40" height="44" rx="6" fill="#1F2937" stroke="#B45309" stroke-width="2"/>
+          <!-- white panel, consistent with the other device icons -->
+          <rect x="280" y="421" width="40" height="44" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <!-- plus / minus hints -->
-          <circle cx="287" cy="428" r="2.2" fill="none" stroke="#fff" stroke-width=".8"/>
-          <line x1="287" y1="426.6" x2="287" y2="429.4" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
-          <line x1="285.3" y1="428" x2="288.7" y2="428" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
-          <circle cx="313" cy="428" r="2.2" fill="none" stroke="#fff" stroke-width=".8"/>
-          <line x1="311.3" y1="428" x2="314.7" y2="428" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
+          <circle cx="287" cy="428" r="2.2" fill="none" stroke="#1b3a6b" stroke-width=".8"/>
+          <line x1="287" y1="426.6" x2="287" y2="429.4" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
+          <line x1="285.3" y1="428" x2="288.7" y2="428" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
+          <circle cx="313" cy="428" r="2.2" fill="none" stroke="#1b3a6b" stroke-width=".8"/>
+          <line x1="311.3" y1="428" x2="314.7" y2="428" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
           <!-- digital temperature -->
-          <text x="300" y="444" text-anchor="middle" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; font-weight:700; fill:#fff;">26.0<tspan style="font-size:6px; font-weight:400;">°C</tspan></text>
-          <!-- bottom mode indicators -->
-          <circle cx="291" cy="455" r="1.8" fill="#fff" opacity=".85"/>
-          <circle cx="300" cy="455" r="1.8" fill="#fff" opacity=".5"/>
-          <circle cx="309" cy="455" r="1.8" fill="#fff" opacity=".25"/>
+          <text x="300" y="444" text-anchor="middle" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; font-weight:700; fill:#1b3a6b;">26.0<tspan dx="0.5" style="font-size:6px; font-weight:400;">°C</tspan></text>
+          <!-- bottom mode indicators (blink in sequence) -->
+          <circle class="tstat-led" cx="291" cy="455" r="1.8" fill="#F97316" style="animation-delay:0s"/>
+          <circle class="tstat-led" cx="300" cy="455" r="1.8" fill="#F97316" style="animation-delay:.35s"/>
+          <circle class="tstat-led" cx="309" cy="455" r="1.8" fill="#F97316" style="animation-delay:.7s"/>
           <text x="300" y="482" text-anchor="middle" class="lbl">Thermostat</text>
         </g>
         <!-- 4 curtain motor -->
@@ -305,9 +305,13 @@
         </g>
         <!-- 7 camera -->
         <g class="float" style="animation-delay:.4s">
-          <path d="M682 447 a18 18 0 0 1 36 0 z" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <circle cx="700" cy="438" r="4" fill="none" stroke="#F97316" stroke-width="1.5"/>
-          <line x1="678" y1="449" x2="722" y2="449" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+          <!-- dome surveillance camera -->
+          <path d="M680 447 a20 20 0 0 1 40 0 z" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <circle cx="700" cy="437" r="4.5" fill="none" stroke="#F97316" stroke-width="1.5"/>
+          <circle cx="700" cy="437" r="1.4" fill="#F97316"/>
+          <line x1="676" y1="447" x2="724" y2="447" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="692" y="447" width="16" height="6" rx="2" fill="#fff" stroke="#CBD5E1" stroke-width="1.3"/>
+          <line x1="700" y1="453" x2="700" y2="459" stroke="#CBD5E1" stroke-width="1.3"/>
           <text x="700" y="482" text-anchor="middle" class="lbl">Camera</text>
         </g>
         <!-- 8 smoke alarm -->
@@ -341,33 +345,40 @@
         </g>
 
         <!-- ============ sub row : IR / RF appliances ============ -->
-        <!-- fan (blades spin) -->
+        <!-- circulation fan: the ring head sways, the blades spin inside it -->
         <g>
-          <g class="fan-blades" stroke="#94A3B8" stroke-width="2" stroke-linecap="round">
-            <line x1="560" y1="539" x2="560" y2="526"/>
-            <line x1="560" y1="539" x2="571" y2="546"/>
-            <line x1="560" y1="539" x2="549" y2="546"/>
+          <!-- stand + base (static) -->
+          <line x1="560" y1="550" x2="560" y2="564" stroke="#CBD5E1" stroke-width="1.6"/>
+          <ellipse cx="560" cy="566" rx="10" ry="2.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
+          <!-- swaying head -->
+          <g class="fan-head">
+            <circle cx="560" cy="536" r="14" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+            <g class="fan-blades" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round">
+              <line x1="560" y1="536" x2="560" y2="525"/>
+              <line x1="560" y1="536" x2="569" y2="542"/>
+              <line x1="560" y1="536" x2="551" y2="542"/>
+            </g>
+            <circle cx="560" cy="536" r="3" fill="#F97316"/>
           </g>
-          <circle cx="560" cy="539" r="3.5" fill="#F97316"/>
           <text x="560" y="578" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- garage (single-storey house; car drives out from the left edge of the door to the right) -->
+        <!-- garage (single-storey house; the car slides out to the right through the door) -->
         <g>
-          <!-- car starts behind the left wall and pulls right so its nose appears first -->
+          <!-- car starts hidden behind the left wall, then pulls right through the door -->
           <g class="eco-car">
-            <path d="M630 548 L632 544 Q633 543 635 543 L641 543 Q643 543 644 544 L646 548 Z" fill="#F97316"/>
-            <rect x="630" y="548" width="22" height="7" rx="2.5" fill="#F97316"/>
-            <path d="M636.8 547.6 L638.7 544.6 L642.8 544.6 L644.6 547.6 Z" fill="#FFEDD5"/>
-            <circle cx="644.8" cy="550" r="1.1" fill="#FEF3C7"/>
-            <circle cx="634.5" cy="553" r="2" fill="#475569"/>
-            <circle cx="645.5" cy="553" r="2" fill="#475569"/>
+            <path d="M632 548 L634 544 Q635 543 637 543 L643 543 Q645 543 646 544 L648 548 Z" fill="#F97316"/>
+            <rect x="632" y="548" width="22" height="7" rx="2.5" fill="#F97316"/>
+            <path d="M638.8 547.6 L640.7 544.6 L644.8 544.6 L646.6 547.6 Z" fill="#FFEDD5"/>
+            <circle cx="646.8" cy="550" r="1.1" fill="#FEF3C7"/>
+            <circle cx="637" cy="553" r="2" fill="#475569"/>
+            <circle cx="649" cy="553" r="2" fill="#475569"/>
           </g>
-          <!-- house body with a hole for the garage door -->
-          <path d="M632 524 H684 V560 H632 V524 Z M654 534 H672 V556 H654 V534 Z" fill="#fff" stroke="#94A3B8" stroke-width="1.6" fill-rule="evenodd"/>
+          <!-- house body: left wall + roof, door opening on the right -->
+          <path d="M632 524 H678 V560 H632 V524 Z M654 534 H678 V556 H654 V534 Z" fill="#fff" stroke="#94A3B8" stroke-width="1.6" fill-rule="evenodd"/>
           <!-- gable roof -->
-          <path d="M630 524 L658 508 L686 524" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M628 524 L655 511 L682 524" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
           <!-- garage door frame -->
-          <rect x="654" y="534" width="18" height="22" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <rect x="654" y="534" width="24" height="22" fill="none" stroke="#F97316" stroke-width="1.4"/>
           <text x="658" y="578" text-anchor="middle" class="lbl">Garage</text>
         </g>
         <!-- RF remote -->
@@ -546,10 +557,39 @@
     }
   }
 
+  /* thermostat mode dots pulse one after another */
+  .tstat-led {
+    animation: eco-tstat 1.6s ease-in-out infinite;
+  }
+  @keyframes eco-tstat {
+    0%,
+    100% {
+      opacity: 0.2;
+    }
+    45% {
+      opacity: 1;
+    }
+  }
+
+  /* circulation fan: the ring head sways left/right, the blades spin inside it */
+  .fan-head {
+    transform-origin: 560px 550px;
+    animation: eco-fan-sway 3.4s ease-in-out infinite;
+  }
+  @keyframes eco-fan-sway {
+    0%,
+    100% {
+      transform: rotate(-15deg);
+    }
+    50% {
+      transform: rotate(15deg);
+    }
+  }
+
   /* fan blades spin around the hub */
   .fan-blades {
-    transform-origin: 560px 539px;
-    animation: eco-spin 2.2s linear infinite;
+    transform-origin: 560px 536px;
+    animation: eco-spin 1.4s linear infinite;
   }
   @keyframes eco-spin {
     to {
@@ -568,7 +608,7 @@
     }
     46%,
     80% {
-      transform: translateX(16px);
+      transform: translateX(25px);
     }
     100% {
       transform: translateX(0);
@@ -653,8 +693,10 @@
     .flow,
     .float,
     .fan-blades,
+    .fan-head,
     .eco-car,
     .led,
+    .tstat-led,
     .wifi-dot,
     .wifi-a1,
     .wifi-a2,
@@ -662,7 +704,10 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(16px);
+      transform: translateX(25px);
+    }
+    .tstat-led {
+      opacity: 0.7;
     }
     .pkts {
       display: none;
