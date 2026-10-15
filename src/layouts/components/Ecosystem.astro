@@ -359,15 +359,15 @@
         <!-- circulation fan: the ring head sways, the blades spin inside it -->
         <g>
           <!-- stand + base (static) -->
-          <line x1="560" y1="550" x2="560" y2="564" stroke="#CBD5E1" stroke-width="1.6"/>
-          <ellipse cx="560" cy="566" rx="10" ry="2.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
+          <line x1="560" y1="546" x2="560" y2="564" stroke="#CBD5E1" stroke-width="1.6"/>
+          <ellipse cx="560" cy="566" rx="14" ry="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
           <!-- swaying head -->
           <g class="fan-head">
-            <circle cx="560" cy="536" r="14" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+            <circle cx="560" cy="536" r="10" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
             <g class="fan-blades" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round">
-              <line x1="560" y1="536" x2="560" y2="525"/>
-              <line x1="560" y1="536" x2="569" y2="542"/>
-              <line x1="560" y1="536" x2="551" y2="542"/>
+              <line x1="560" y1="536" x2="560" y2="529"/>
+              <line x1="560" y1="536" x2="566" y2="541"/>
+              <line x1="560" y1="536" x2="554" y2="541"/>
             </g>
             <circle cx="560" cy="536" r="3" fill="#F97316"/>
           </g>
@@ -384,12 +384,12 @@
             <circle cx="637" cy="553" r="2" fill="#475569"/>
             <circle cx="649" cy="553" r="2" fill="#475569"/>
           </g>
-          <!-- house body: left wall + roof, door opening on the right -->
-          <path d="M632 524 H678 V560 H632 V524 Z M654 534 H678 V556 H654 V534 Z" fill="#fff" stroke="#94A3B8" stroke-width="1.6" fill-rule="evenodd"/>
+          <!-- house body: left wall + roof, door opening on the right (door baseline = house baseline) -->
+          <path d="M632 524 H678 V560 H632 V524 Z M654 534 H678 V560 H654 V534 Z" fill="#fff" stroke="#94A3B8" stroke-width="1.6" fill-rule="evenodd"/>
           <!-- gable roof -->
           <path d="M628 524 L655 511 L682 524" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
           <!-- garage door frame -->
-          <rect x="654" y="534" width="24" height="22" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <rect x="654" y="534" width="24" height="26" fill="none" stroke="#F97316" stroke-width="1.4"/>
           <text x="658" y="578" text-anchor="middle" class="lbl">Garage</text>
         </g>
         <!-- RF remote -->
