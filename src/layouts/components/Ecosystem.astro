@@ -176,27 +176,27 @@
 
         <!-- ============ left box : voice control ============ -->
         <g>
-          <rect x="60" y="212" width="240" height="120" rx="14" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="60" y="212" width="240" height="120" rx="14" fill="none" stroke="#CBD5E1" stroke-width="1.6"/>
           <text x="180" y="237" text-anchor="middle" class="box-head">Voice Control</text>
-          <circle cx="100" cy="264" r="11" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.4"/>
-          <circle cx="100" cy="264" r="4" fill="#1b3a6b"/>
+          <circle cx="100" cy="264" r="11" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
+          <circle cx="100" cy="264" r="4" fill="#F97316"/>
           <text x="122" y="269" class="row-lbl">Amazon Alexa</text>
-          <circle cx="100" cy="302" r="11" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.4"/>
-          <circle cx="100" cy="302" r="4" fill="#1b3a6b"/>
+          <circle cx="100" cy="302" r="11" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
+          <circle cx="100" cy="302" r="4" fill="#F97316"/>
           <text x="122" y="307" class="row-lbl">Hey Google</text>
         </g>
 
         <!-- ============ right box : ecosystems ============ -->
         <g>
-          <rect x="900" y="212" width="240" height="125" rx="14" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <circle cx="935" cy="243" r="11" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.4"/>
-          <circle cx="935" cy="243" r="4" fill="#1b3a6b"/>
+          <rect x="900" y="212" width="240" height="125" rx="14" fill="none" stroke="#CBD5E1" stroke-width="1.6"/>
+          <circle cx="935" cy="243" r="11" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
+          <circle cx="935" cy="243" r="4" fill="#F97316"/>
           <text x="957" y="248" class="row-lbl">Apple HomePod</text>
-          <circle cx="935" cy="276" r="11" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.4"/>
-          <circle cx="935" cy="276" r="4" fill="#1b3a6b"/>
+          <circle cx="935" cy="276" r="11" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
+          <circle cx="935" cy="276" r="4" fill="#F97316"/>
           <text x="957" y="281" class="row-lbl">Amazon Echo</text>
-          <circle cx="935" cy="309" r="11" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.4"/>
-          <circle cx="935" cy="309" r="4" fill="#1b3a6b"/>
+          <circle cx="935" cy="309" r="11" fill="#FFF7ED" stroke="#F97316" stroke-width="1.4"/>
+          <circle cx="935" cy="309" r="4" fill="#F97316"/>
           <text x="957" y="314" class="row-lbl">Google Nest</text>
         </g>
 
@@ -562,16 +562,15 @@
     fill: #4e6790;
   }
   .row-lbl {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     fill: #1b3a6b;
   }
+  /* same size / weight / colour as the gateway labels */
   .box-head {
-    font-size: 11.5px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    fill: #4e6790;
+    fill: #1b3a6b;
   }
   .chip-lbl {
     font-size: 12.5px;
@@ -644,13 +643,13 @@
 
   /* traveling packets blink while they move, staggered in three groups */
   .pkt {
-    animation: pkt-pulse 1.4s ease-in-out infinite;
+    animation: pkt-pulse 0.9s ease-in-out infinite;
   }
   .pkts circle:nth-of-type(3n + 2) {
-    animation-delay: 0.45s;
+    animation-delay: 0.3s;
   }
   .pkts circle:nth-of-type(3n) {
-    animation-delay: 0.9s;
+    animation-delay: 0.6s;
   }
   @keyframes pkt-pulse {
     0%,
