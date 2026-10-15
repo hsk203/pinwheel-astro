@@ -276,27 +276,252 @@
         <g class="float" style="animation-delay:.9s">
           <!-- white panel, consistent with the other device icons -->
           <rect x="280" y="421" width="40" height="44" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <!-- plus / minus hints -->
-          <circle cx="287" cy="428" r="2.2" fill="none" stroke="#1b3a6b" stroke-width=".8"/>
-          <line x1="287" y1="426.6" x2="287" y2="429.4" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
-          <line x1="285.3" y1="428" x2="288.7" y2="428" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
-          <circle cx="313" cy="428" r="2.2" fill="none" stroke="#1b3a6b" stroke-width=".8"/>
-          <line x1="311.3" y1="428" x2="314.7" y2="428" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
-          <!-- digital temperature: climbs 18.0 -> 26.0, flashing twice before each step -->
-          <g style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; font-weight:700; fill:#F97316;">
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:0s">18.0</text>
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:1s">19.0</text>
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:2s">20.0</text>
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:3s">21.0</text>
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:4s">22.0</text>
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:5s">23.0</text>
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:6s">24.0</text>
-            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:7s">25.0</text>
-            <text class="tstat-temp tstat-temp-hold" x="296" y="444" text-anchor="middle" style="animation-delay:8s">26.0</text>
+          <!-- heating/cooling level bars above the temperature -->
+          <g>
+            <rect class="tstat-bar" x="288" y="423" width="3" height="7" rx="1" fill="#F97316" style="transform-origin:289.5px 430px; animation-delay:0s"/>
+            <rect class="tstat-bar" x="293" y="423" width="3" height="7" rx="1" fill="#F97316" style="transform-origin:294.5px 430px; animation-delay:.25s"/>
+            <rect class="tstat-bar" x="298" y="423" width="3" height="7" rx="1" fill="#F97316" style="transform-origin:299.5px 430px; animation-delay:.5s"/>
+            <rect class="tstat-bar" x="303" y="423" width="3" height="7" rx="1" fill="#F97316" style="transform-origin:304.5px 430px; animation-delay:.75s"/>
+            <rect class="tstat-bar" x="308" y="423" width="3" height="7" rx="1" fill="#F97316" style="transform-origin:309.5px 430px; animation-delay:1s"/>
+            <rect class="tstat-bar" x="313" y="423" width="3" height="7" rx="1" fill="#F97316" style="transform-origin:314.5px 430px; animation-delay:1.25s"/>
           </g>
-          <!-- degree mark drawn as a ring + C so it never renders tilted -->
-          <circle cx="313.2" cy="436.8" r="1.2" fill="none" stroke="#F97316" stroke-width=".9"/>
-          <text x="314.8" y="444" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:7px; font-weight:600; fill:#F97316;">C</text>
+          <!-- digital temperature: climbs 18.0 -> 26.0, seven-segment style -->
+          <g>
+<g class="tstat-temp" style="animation-delay:0s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp" style="animation-delay:1s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp" style="animation-delay:2s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp" style="animation-delay:3s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp" style="animation-delay:4s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp" style="animation-delay:5s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp" style="animation-delay:6s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp" style="animation-delay:7s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+<g class="tstat-temp tstat-temp-hold" style="animation-delay:8s">
+      <path d="M1 0 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 9.5 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M1 4.75 H4" transform="translate(285,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 0 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(291.2,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <rect x="298" y="439.5" width="1.2" height="1.2" rx=".3" fill="#F97316"/>
+      <path d="M1 0 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M4.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 9.5 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 5.2 V8.7" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M.5 .8 V4.2" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="1"/>
+      <path d="M1 4.75 H4" transform="translate(300,431.5)" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".12"/>
+      <circle cx="308.5" cy="433.1" r=".85" fill="none" stroke="#F97316" stroke-width=".9"/>
+      <path d="M312 434.3 H309.5 V439.2 H312" stroke="#F97316" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    </g>
+          </g>
           <!-- bottom mode indicators (blink in sequence) -->
           <circle class="tstat-led" cx="291" cy="455" r="1.8" fill="#F97316" style="animation-delay:0s"/>
           <circle class="tstat-led" cx="300" cy="455" r="1.8" fill="#F97316" style="animation-delay:.35s"/>
@@ -734,6 +959,22 @@
     }
   }
 
+  /* thermostat level bars grow upward one by one */
+  .tstat-bar {
+    animation: tstat-bar 1.6s ease-in-out infinite;
+  }
+  @keyframes tstat-bar {
+    0%,
+    100% {
+      transform: scaleY(0.2);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
   /* smoke alarm: expanding detection ping + blinking status led */
   .smoke-pulse {
     transform-origin: 800px 443px;
@@ -995,7 +1236,8 @@
     .wifi-a1,
     .wifi-a2,
     .wifi-a3,
-    .eco-mod {
+    .eco-mod,
+    .tstat-bar {
       animation: none;
     }
     .eco-car {
