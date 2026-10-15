@@ -360,16 +360,19 @@
         </g>
         <!-- 7 camera -->
         <g class="float" style="animation-delay:.4s">
-          <!-- dome surveillance camera -->
-          <path d="M680 447 a20 20 0 0 1 40 0 z" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <!-- lens pans left / right like an auto-tracking camera -->
+          <!-- ptz camera head: status led + lens, pans left / right -->
           <g class="cam-lens">
-            <circle cx="700" cy="437" r="4.5" fill="none" stroke="#F97316" stroke-width="1.5"/>
-            <circle cx="700" cy="437" r="1.4" fill="#F97316"/>
+            <circle cx="700" cy="436" r="12" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+            <circle cx="700" cy="429.8" r=".9" fill="#F97316"/>
+            <circle cx="700" cy="437" r="5.5" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
+            <circle cx="700" cy="437" r="3" fill="none" stroke="#F97316" stroke-width="1.4"/>
+            <circle cx="700" cy="437" r="1.3" fill="#F97316"/>
           </g>
-          <line x1="676" y1="447" x2="724" y2="447" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
-          <rect x="692" y="447" width="16" height="6" rx="2" fill="#fff" stroke="#CBD5E1" stroke-width="1.3"/>
-          <line x1="700" y1="453" x2="700" y2="459" stroke="#CBD5E1" stroke-width="1.3"/>
+          <!-- bowl cradle -->
+          <path d="M686 449 Q686 458.5 700 458.5 Q714 458.5 714 449 Z" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <!-- stem + foot -->
+          <line x1="700" y1="458.5" x2="700" y2="462.5" stroke="#CBD5E1" stroke-width="1.3"/>
+          <line x1="694" y1="462.5" x2="706" y2="462.5" stroke="#CBD5E1" stroke-width="1.3" stroke-linecap="round"/>
           <text x="700" y="482" text-anchor="middle" class="lbl">Camera</text>
         </g>
         <!-- 8 smoke alarm -->
@@ -394,14 +397,17 @@
         </g>
         <!-- 10 robot vacuum: the robot slides out of its base dock and returns -->
         <g class="float" style="animation-delay:1.6s">
-          <!-- robot (behind the dock, slides out to the left) -->
+          <!-- robot: LDS turret, wheel, body, bumper line, front sensor -->
           <g class="eco-vac">
-            <rect x="996.5" y="452" width="7" height="2.6" rx="1.3" fill="#fff" stroke="#CBD5E1" stroke-width="1.1"/>
-            <rect x="993" y="454.6" width="14" height="8" rx="4" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
-            <circle cx="995.9" cy="458.6" r="1.1" fill="#F97316"/>
+            <rect x="996.5" y="452.6" width="5" height="2.4" rx="1.2" fill="#fff" stroke="#CBD5E1" stroke-width="1.1"/>
+            <circle cx="1004.5" cy="461.5" r="1.4" fill="#475569"/>
+            <rect x="991.5" y="455" width="17" height="6.5" rx="3.2" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
+            <line x1="995.2" y1="455.8" x2="995.2" y2="460.7" stroke="#CBD5E1" stroke-width="1"/>
+            <circle cx="993.2" cy="457.5" r="1" fill="#F97316"/>
           </g>
           <!-- base dock (drawn on top so the robot emerges from inside) -->
-          <rect x="992" y="424" width="16" height="39" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="990" y="424" width="20" height="39" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <line x1="991" y1="450" x2="1009" y2="450" stroke="#CBD5E1" stroke-width="1"/>
           <circle class="smoke-led" cx="1000" cy="430" r="1.2" fill="#F97316"/>
           <text x="1000" y="482" text-anchor="middle" class="lbl">Robot Vacuum</text>
         </g>
@@ -433,9 +439,18 @@
           </g>
           <text x="560" y="578" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- garage: open carport with a wide roof; the car pulls out to the right -->
+        <!-- garage: slatted door in the middle; the car waits behind the wall and pulls out through the door -->
         <g>
-          <!-- car hidden behind the bay wall; only shows once it clears the door -->
+          <!-- wide gable roof with eaves overhang -->
+          <path d="M622 523 L655 511 L690 523" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
+          <!-- side columns -->
+          <path d="M632 523 V560 M682 523 V560" fill="none" stroke="#94A3B8" stroke-width="1.6"/>
+          <!-- door header -->
+          <path d="M632 530 H682 M632 534 H682" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+          <!-- slatted garage door -->
+          <rect x="640" y="536" width="34" height="24" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
+          <path d="M641.5 542 H672.5 M641.5 548 H672.5 M641.5 554 H672.5" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+          <!-- car: hidden behind the wall, appears at the door's left edge, then pulls out -->
           <g clip-path="url(#garageCarClip)">
             <g class="eco-car">
               <path d="M648 547.5 L650.5 543 Q651.5 541.5 653.5 541.5 L660 541.5 Q662.5 541.5 663.8 543.5 L665.5 546.5 L669 547.5 Q671.5 548 671.5 550.5 L671.5 554 Q671.5 555.5 670 555.5 L643 555.5 Q641.5 555.5 641.5 554 L641.5 550 Q641.5 548 643.5 547.6 Z" fill="#F97316"/>
@@ -444,12 +459,6 @@
               <circle cx="664" cy="557.2" r="2.6" fill="#475569"/>
             </g>
           </g>
-          <!-- wide gable roof with eaves overhang -->
-          <path d="M622 523 L655 511 L690 523" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
-          <!-- side columns -->
-          <path d="M632 523 V560 M682 523 V560" fill="none" stroke="#94A3B8" stroke-width="1.6"/>
-          <!-- opened door header -->
-          <path d="M632 530 H682 M632 534 H682" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
           <!-- ground line -->
           <path d="M626 560 H688" fill="none" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
           <text x="656" y="578" text-anchor="middle" class="lbl">Garage</text>
@@ -461,7 +470,7 @@
             <stop offset="1" stop-color="#F97316"/>
           </linearGradient>
           <clipPath id="garageCarClip">
-            <rect x="683" y="515" width="130" height="50"/>
+            <rect x="640" y="515" width="175" height="50"/>
           </clipPath>
         </defs>
       </svg>
@@ -744,18 +753,18 @@
     }
   }
 
-  /* dome camera: the lens pans left / right, auto-tracking */
+  /* ptz camera: the head pans left / right, auto-tracking */
   .cam-lens {
-    transform-origin: 700px 447px;
+    transform-origin: 700px 449px;
     animation: cam-pan 4s ease-in-out infinite;
   }
   @keyframes cam-pan {
     0%,
     100% {
-      transform: rotate(-18deg);
+      transform: rotate(-16deg);
     }
     50% {
-      transform: rotate(18deg);
+      transform: rotate(16deg);
     }
   }
 
@@ -770,7 +779,7 @@
     }
     52%,
     82% {
-      transform: translateX(-26px);
+      transform: translateX(-30px);
     }
     100% {
       transform: translateX(0);
@@ -803,21 +812,22 @@
     }
   }
 
-  /* a car noses out of the open bay to the right, waits, then backs in */
+  /* a car waits behind the garage wall, noses out at the door's left edge,
+     pulls out to the right, then backs in behind the wall again */
   .eco-car {
     animation: eco-car 4.4s ease-in-out infinite;
   }
   @keyframes eco-car {
     0%,
     12% {
-      transform: translateX(0);
+      transform: translateX(-32px);
     }
     46%,
     80% {
-      transform: translateX(50px);
+      transform: translateX(42px);
     }
     100% {
-      transform: translateX(0);
+      transform: translateX(-32px);
     }
   }
 
@@ -920,10 +930,10 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(50px);
+      transform: translateX(42px);
     }
     .eco-vac {
-      transform: translateX(-26px);
+      transform: translateX(-30px);
     }
     .tstat-led {
       opacity: 0.7;
