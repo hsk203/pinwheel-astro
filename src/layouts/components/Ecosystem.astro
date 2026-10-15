@@ -419,19 +419,20 @@
           </g>
           <text x="660" y="482" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- 9 garage: the door rolls up, then the car drives out to the left.
-             drawing order matters — ground → car → door cuts the car off
-             exactly at the door line, so the car only shows once the door lifts -->
+        <!-- 9 garage: a roller shutter rolls up into the lintel, then the car
+             drives out to the left. drawing order decides what covers what:
+             side pillars / lintel → ground → car → shutter (clipped by the bay) -->
         <g class="float" style="animation-delay:1.9s">
-          <!-- garage shell: walls on both sides + roof band, so the door bay reads
-               as a real garage and the car can still slide out on the left -->
-          <rect x="726" y="446" width="30" height="18" fill="#F8FAFC"/>
-          <rect x="720" y="436" width="40" height="28" rx="3.5" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-          <rect x="720" y="436" width="40" height="7" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
-          <!-- ground line (under everything) -->
+          <!-- garage shell -->
+          <rect x="720" y="436" width="40" height="28" rx="3.5" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
+          <!-- side pillars: always there, that is what a garage doorway looks like -->
+          <rect x="720" y="446" width="6" height="18" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
+          <rect x="754" y="446" width="6" height="18" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
+          <!-- lintel: the shutter coil hides inside it when the door is up -->
+          <rect x="720" y="436" width="40" height="10" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
+          <!-- ground line (under the car) -->
           <path d="M716 464 H764" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- car: parked inside while the door is closed; clipped so it stays on
-               the lane and never pokes out of the bottom or the right wall -->
+          <!-- car: drives out to the left; clipped so it never leaves the lane -->
           <g clip-path="url(#garageCarClip)">
             <g class="eco-car">
               <path d="M736.4 456.6 L738.3 453.5 Q739 452.3 740.5 452.3 L745.4 452.3 Q747.3 452.3 748.2 453.8 L749.5 456.1 L752.1 456.9 Q754.1 457.3 754.1 459.1 L754.1 461.8 Q754.1 463 753 463 L731.5 463 Q730.3 463 730.3 461.8 L730.3 458.5 Q730.3 457 731.9 456.6 Z" fill="#F97316"/>
@@ -440,12 +441,15 @@
               <circle cx="748.4" cy="461.8" r="2.2" fill="#475569"/>
             </g>
           </g>
-          <!-- the door panel: sits over the bay while closed, rolls straight up -->
-          <g class="garage-door">
-            <rect x="726" y="446" width="30" height="18" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
-            <line x1="726" y1="451.5" x2="756" y2="451.5" stroke="#E2E8F0" stroke-width="1"/>
-            <line x1="726" y1="457" x2="756" y2="457" stroke="#E2E8F0" stroke-width="1"/>
-            <line x1="726" y1="462.5" x2="756" y2="462.5" stroke="#E2E8F0" stroke-width="1"/>
+          <!-- the roller shutter: one panel clipped to the doorway; rolling up
+               slides it behind the lintel where the clip cuts it away -->
+          <g clip-path="url(#garageDoorClip)">
+            <g class="garage-door">
+              <rect x="726" y="446" width="28" height="18" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
+              <line x1="726" y1="451.5" x2="754" y2="451.5" stroke="#E2E8F0" stroke-width="1"/>
+              <line x1="726" y1="457" x2="754" y2="457" stroke="#E2E8F0" stroke-width="1"/>
+              <line x1="726" y1="460.2" x2="754" y2="460.2" stroke="#E2E8F0" stroke-width="1"/>
+            </g>
           </g>
           <text x="740" y="482" text-anchor="middle" class="lbl">Garage</text>
         </g>
@@ -524,6 +528,11 @@
           </linearGradient>
           <clipPath id="garageCarClip">
             <rect x="660" y="436" width="172" height="28"/>
+          </clipPath>
+          <!-- the shutter only exists inside the doorway; above the lintel bottom
+               it is cut away, so the coil visually hides inside the lintel -->
+          <clipPath id="garageDoorClip">
+            <rect x="726" y="446" width="28" height="18"/>
           </clipPath>
         </defs>
       </svg>
@@ -1014,8 +1023,8 @@
     }
   }
 
-  /* garage: one shared 10s loop — the door rolls up, the car drives out to the
-     left, comes back, and the door rolls down again */
+  /* garage: one shared 10s loop — the roller shutter rolls up into the lintel,
+     the car drives out to the left, comes back, the shutter rolls down again */
   .garage-door {
     transform: translateY(0);
     animation: garage-door 10s ease-in-out infinite;
@@ -1026,7 +1035,7 @@
     }
     24%,
     66% {
-      transform: translateY(-21px);
+      transform: translateY(-70px);
     }
     84%,
     100% {
@@ -1161,7 +1170,7 @@
       transform: translateX(-46px);
     }
     .garage-door {
-      transform: translateY(-21px);
+      transform: translateY(-70px);
     }
     .eco-vac {
       transform: translateX(-38px);
