@@ -419,20 +419,23 @@
           </g>
           <text x="660" y="482" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- 9 garage: a roller shutter rolls up into the lintel, then the car
-             drives out to the left. drawing order decides what covers what:
-             side pillars / lintel → ground → car → shutter (clipped by the bay) -->
+        <!-- 9 garage: a roller shutter rolls up into the lintel, the car drives
+             out to the left until a wall swallows it (nose first), the shutter
+             closes; later the shutter opens again and the car backs home.
+             drawing order decides what covers what:
+             shell / pillars / lintel → ground → car → wall → shutter -->
         <g class="float" style="animation-delay:1.9s">
           <!-- garage shell -->
           <rect x="720" y="436" width="40" height="28" rx="3.5" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
-          <!-- side pillars: always there, that is what a garage doorway looks like -->
+          <!-- side pillars -->
           <rect x="720" y="446" width="6" height="18" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
           <rect x="754" y="446" width="6" height="18" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
-          <!-- lintel: the shutter coil hides inside it when the door is up -->
-          <rect x="720" y="436" width="40" height="10" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
+          <!-- lintel: a slim bar, the shutter coil hides inside it -->
+          <rect x="720" y="436" width="40" height="7" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
           <!-- ground line (under the car) -->
           <path d="M716 464 H764" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- car: drives out to the left; clipped so it never leaves the lane -->
+          <!-- car: clipped so it never leaves the lane; the wall below eats its
+               nose first, which reads as the car turning a corner -->
           <g clip-path="url(#garageCarClip)">
             <g class="eco-car">
               <path d="M736.4 456.6 L738.3 453.5 Q739 452.3 740.5 452.3 L745.4 452.3 Q747.3 452.3 748.2 453.8 L749.5 456.1 L752.1 456.9 Q754.1 457.3 754.1 459.1 L754.1 461.8 Q754.1 463 753 463 L731.5 463 Q730.3 463 730.3 461.8 L730.3 458.5 Q730.3 457 731.9 456.6 Z" fill="#F97316"/>
@@ -441,6 +444,8 @@
               <circle cx="748.4" cy="461.8" r="2.2" fill="#475569"/>
             </g>
           </g>
+          <!-- the car is clipped at x=696, so driving left it vanishes edge-first
+               as if it turned behind a wall — the wall itself is not drawn -->
           <!-- the roller shutter: one panel clipped to the doorway; rolling up
                slides it behind the lintel where the clip cuts it away -->
           <g clip-path="url(#garageDoorClip)">
@@ -527,7 +532,7 @@
             <stop offset="1" stop-color="#F97316"/>
           </linearGradient>
           <clipPath id="garageCarClip">
-            <rect x="660" y="436" width="172" height="28"/>
+            <rect x="696" y="436" width="136" height="28"/>
           </clipPath>
           <!-- the shutter only exists inside the doorway; above the lintel bottom
                it is cut away, so the coil visually hides inside the lintel -->
@@ -1034,39 +1039,57 @@
     }
   }
 
-  /* garage: one shared 10s loop — the roller shutter rolls up into the lintel,
-     the car drives out to the left, comes back, the shutter rolls down again */
+  /* garage: one shared 12s loop —
+       1.4-3.1s  shutter rolls up, disappears into the lintel
+       3.1-5.4s  car drives out and is swallowed by the wall
+       5.4-6.9s  shutter closes again while the car is away
+       6.9-7.9s  shutter opens a second time
+       7.9-10.0s car backs out of the wall into the garage
+      10.0-11.4s shutter closes, car parked inside */
   .garage-door {
     transform: translateY(0);
-    animation: garage-door 10s ease-in-out infinite;
+    animation: garage-door 12s ease-in-out infinite;
   }
   @keyframes garage-door {
-    0% {
+    0%,
+    12% {
       transform: translateY(0);
     }
-    24%,
-    66% {
+    26%,
+    45% {
       transform: translateY(-70px);
     }
-    84%,
+    57%,
+    66% {
+      transform: translateY(0);
+    }
+    72%,
+    83% {
+      transform: translateY(-70px);
+    }
+    95%,
     100% {
       transform: translateY(0);
     }
   }
   .eco-car {
     transform: translateX(0);
-    animation: eco-car 10s ease-in-out infinite;
+    animation: eco-car 12s ease-in-out infinite;
   }
   @keyframes eco-car {
     0%,
-    24%,
-    40% {
+    26% {
       transform: translateX(0);
     }
-    56% {
-      transform: translateX(-46px);
+    45% {
+      transform: translateX(-58px);
     }
-    72%,
+    66% {
+      transform: translateX(-58px);
+    }
+    83% {
+      transform: translateX(0);
+    }
     100% {
       transform: translateX(0);
     }
@@ -1178,7 +1201,7 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(-46px);
+      transform: translateX(-58px);
     }
     .garage-door {
       transform: translateY(-70px);
