@@ -837,8 +837,8 @@
     }
   }
 
-  /* a car waits behind the garage wall, noses out at the door's left edge,
-     pulls out to the right, then backs in behind the wall again */
+  /* a car waits behind the garage wall, noses out just past the middle of the
+     door, then backs in behind the wall again */
   .eco-car {
     animation: eco-car 4.4s ease-in-out infinite;
   }
@@ -849,7 +849,7 @@
     }
     46%,
     80% {
-      transform: translateX(42px);
+      transform: translateX(-9.5px);
     }
     100% {
       transform: translateX(-32px);
@@ -955,7 +955,7 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(42px);
+      transform: translateX(-9.5px);
     }
     .eco-vac {
       transform: translateX(-34px);
