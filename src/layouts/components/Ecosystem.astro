@@ -51,11 +51,11 @@
           <path class="flow" d="M100 411 V423"/>
           <path class="flow" d="M180 411 V423"/>
           <path class="flow" d="M260 411 V423"/>
-          <path class="flow" d="M340 411 V436"/>
+          <path class="flow" d="M340 411 V434"/>
           <path class="flow" d="M420 411 V423"/>
           <path class="flow" d="M500 411 V423"/>
           <path class="flow" d="M580 411 V426"/>
-          <path class="flow" d="M660 411 V430"/>
+          <path class="flow" d="M660 411 V436"/>
           <path class="flow" d="M740 411 V423"/>
           <path class="flow" d="M820 411 V423"/>
           <path class="flow" d="M900 411 V423"/>
@@ -308,23 +308,23 @@
         <g class="float" style="animation-delay:1.6s">
           <!-- robot: LDS turret, wheel, body, bumper line, front sensor -->
           <g class="eco-vac">
-            <rect x="337" y="451" width="6" height="2.6" rx="1.3" fill="#fff" stroke="#CBD5E1" stroke-width="1.1"/>
-            <circle cx="334" cy="461.4" r="1.6" fill="#475569"/>
-            <rect x="330" y="453.5" width="22" height="8.5" rx="4.2" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
-            <line x1="345.7" y1="454.3" x2="345.7" y2="461.2" stroke="#CBD5E1" stroke-width="1"/>
-            <circle cx="348" cy="456.2" r="1.2" fill="#F97316"/>
+            <rect x="335.2" y="449.5" width="7.4" height="3" rx="1.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.15"/>
+            <circle cx="331.8" cy="461.7" r="1.9" fill="#475569"/>
+            <rect x="327" y="452.4" width="26.4" height="10.2" rx="5.1" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+            <line x1="346.7" y1="453.3" x2="346.7" y2="461.6" stroke="#CBD5E1" stroke-width="1"/>
+            <circle cx="349.4" cy="455.6" r="1.4" fill="#F97316"/>
           </g>
           <!-- base dock: short unit, drawn on top so the robot emerges from inside -->
-          <rect x="328" y="436" width="24" height="27" rx="4" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="324.8" y="433.6" width="30" height="31.2" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.7"/>
           <!-- dock bay mouth the robot drives out of -->
-          <rect x="327.2" y="450" width="6" height="11.5" rx="1.8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+          <rect x="323.6" y="448.4" width="7.2" height="13.6" rx="2.1" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.25"/>
           <!-- panel seam + side vents -->
-          <line x1="330" y1="444.5" x2="350" y2="444.5" stroke="#CBD5E1" stroke-width="1"/>
-          <line x1="332" y1="448" x2="339.5" y2="448" stroke="#CBD5E1" stroke-width="1"/>
-          <line x1="334" y1="451" x2="339.5" y2="451" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="327.8" y1="443.4" x2="351.8" y2="443.4" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="330.2" y1="447.4" x2="339.6" y2="447.4" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="332.6" y1="451" x2="339.6" y2="451" stroke="#CBD5E1" stroke-width="1"/>
           <!-- charging led + floor plate -->
-          <circle class="smoke-led" cx="340" cy="441" r="1.3" fill="#F97316"/>
-          <line x1="327" y1="463" x2="353" y2="463" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+          <circle class="smoke-led" cx="339.8" cy="439" r="1.5" fill="#F97316"/>
+          <line x1="323.6" y1="464.4" x2="356" y2="464.4" stroke="#CBD5E1" stroke-width="1.3" stroke-linecap="round"/>
           <text x="340" y="482" text-anchor="middle" class="lbl">Robot Vacuum</text>
         </g>
         <!-- 5 smart door lock: keypad + handle with a fingerprint reader -->
@@ -406,22 +406,22 @@
         <!-- 8 garage: flat-roof; the car waits behind the wall and noses out through the door -->
         <g class="float" style="animation-delay:1.9s">
           <!-- body block -->
-          <rect x="644" y="440" width="32" height="23" rx="3" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
+          <rect x="640" y="436" width="40" height="28" rx="3.5" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
           <!-- header band (simple wall block above the door) -->
-          <rect x="644" y="440" width="32" height="5" fill="#fff" stroke="#94A3B8" stroke-width="1.2"/>
+          <rect x="640" y="436" width="40" height="6" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
           <!-- garage door -->
-          <rect x="650" y="449" width="20" height="14" fill="#fff" stroke="#94A3B8" stroke-width="1.2"/>
+          <rect x="648" y="447" width="24" height="17" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
           <!-- car: hidden behind the wall, appears at the door's left edge, then pulls out -->
           <g clip-path="url(#garageCarClip)">
             <g class="eco-car">
-              <path d="M658 456 L659.6 453.4 Q660.2 452.4 661.5 452.4 L665.7 452.4 Q667.3 452.4 668.1 453.7 L669.2 455.6 L671.5 456.3 Q673.2 456.6 673.2 458.2 L673.2 460.5 Q673.2 461.5 672.2 461.5 L653.7 461.5 Q652.7 461.5 652.7 460.5 L652.7 457.7 Q652.7 456.4 654 456.1 Z" fill="#F97316"/>
-              <path d="M660.7 456 L661.6 453.7 Q662 453.1 662.6 453.1 L665.5 453.1 Q666.4 453.1 666.8 453.9 L667.7 456 Z" fill="#FFEDD5"/>
-              <circle cx="658.7" cy="462.6" r="1.9" fill="#475569"/>
-              <circle cx="668.5" cy="462.6" r="1.9" fill="#475569"/>
+              <path d="M656.4 456.6 L658.3 453.5 Q659 452.3 660.5 452.3 L665.4 452.3 Q667.3 452.3 668.2 453.8 L669.5 456.1 L672.1 456.9 Q674.1 457.3 674.1 459.1 L674.1 461.8 Q674.1 463 673 463 L651.5 463 Q650.3 463 650.3 461.8 L650.3 458.5 Q650.3 457 651.9 456.6 Z" fill="#F97316"/>
+              <path d="M659.5 456.6 L660.6 453.8 Q661.1 453.1 661.8 453.1 L665.2 453.1 Q666.3 453.1 666.7 454 L667.8 456.6 Z" fill="#FFEDD5"/>
+              <circle cx="657.1" cy="464.4" r="2.2" fill="#475569"/>
+              <circle cx="668.4" cy="464.4" r="2.2" fill="#475569"/>
             </g>
           </g>
           <!-- ground line, flush with the body -->
-          <path d="M644 463 H676" fill="none" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M640 464 H680" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
           <text x="660" y="482" text-anchor="middle" class="lbl">Garage</text>
         </g>
         <!-- 9 RF remote: signal waves pulse out, then the centre button presses -->
@@ -504,7 +504,7 @@
             <stop offset="1" stop-color="#F97316"/>
           </linearGradient>
           <clipPath id="garageCarClip">
-            <rect x="650" y="438" width="90" height="28"/>
+            <rect x="648" y="433" width="100" height="33"/>
           </clipPath>
         </defs>
       </svg>
@@ -953,7 +953,7 @@
     }
     52%,
     82% {
-      transform: translateX(-34px);
+      transform: translateX(-38px);
     }
     100% {
       transform: translateX(0);
@@ -995,11 +995,11 @@
     0%,
     12%,
     100% {
-      transform: translateX(-22px);
+      transform: translateX(-24px);
     }
     46%,
     80% {
-      transform: translateX(-7px);
+      transform: translateX(-4px);
     }
   }
 
@@ -1106,10 +1106,10 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(-7px);
+      transform: translateX(-4px);
     }
     .eco-vac {
-      transform: translateX(-34px);
+      transform: translateX(-38px);
     }
     .tstat-led {
       opacity: 0.7;
