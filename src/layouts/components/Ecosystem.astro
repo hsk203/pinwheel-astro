@@ -259,8 +259,20 @@
         </g>
         <!-- 3 thermostat -->
         <g class="float" style="animation-delay:.9s">
-          <circle cx="300" cy="443" r="17" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <text x="300" y="447" text-anchor="middle" class="lbl" style="font-size:12px; font-weight:600; fill:#1b3a6b">26°</text>
+          <!-- gold-framed black glass panel -->
+          <rect x="280" y="421" width="40" height="44" rx="6" fill="#1F2937" stroke="#B45309" stroke-width="2"/>
+          <!-- plus / minus hints -->
+          <circle cx="287" cy="428" r="2.2" fill="none" stroke="#fff" stroke-width=".8"/>
+          <line x1="287" y1="426.6" x2="287" y2="429.4" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
+          <line x1="285.3" y1="428" x2="288.7" y2="428" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
+          <circle cx="313" cy="428" r="2.2" fill="none" stroke="#fff" stroke-width=".8"/>
+          <line x1="311.3" y1="428" x2="314.7" y2="428" stroke="#fff" stroke-width=".7" stroke-linecap="round"/>
+          <!-- digital temperature -->
+          <text x="300" y="444" text-anchor="middle" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; font-weight:700; fill:#fff;">26.0<tspan style="font-size:6px; font-weight:400;">°C</tspan></text>
+          <!-- bottom mode indicators -->
+          <circle cx="291" cy="455" r="1.8" fill="#fff" opacity=".85"/>
+          <circle cx="300" cy="455" r="1.8" fill="#fff" opacity=".5"/>
+          <circle cx="309" cy="455" r="1.8" fill="#fff" opacity=".25"/>
           <text x="300" y="482" text-anchor="middle" class="lbl">Thermostat</text>
         </g>
         <!-- 4 curtain motor -->
