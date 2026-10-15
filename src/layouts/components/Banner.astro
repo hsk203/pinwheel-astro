@@ -112,7 +112,7 @@ const waHref = `https://wa.me/${wa.number}?text=${encodeURIComponent(wa.message)
     box-shadow: 0 5px 16px rgba(249, 115, 22, 0.4);
   }
 
-  /* ---- WhatsApp CTA : same shape / behaviour, green palette ---- */
+  /* ---- WhatsApp CTA : lighter mint-to-green gradient ---- */
   .banner-wa {
     display: inline-flex;
     align-items: center;
@@ -123,9 +123,9 @@ const waHref = `https://wa.me/${wa.number}?text=${encodeURIComponent(wa.message)
     padding-inline: 1.75rem;
     background-image: linear-gradient(
       184.78deg,
-      #45e0a0 7.64%,
-      #25d366 45%,
-      #0d8a63 120.07%
+      #82ebbd 7.64%,
+      #52e093 45%,
+      #22c466 120.07%
     );
     color: #fff;
     font-weight: 600;
@@ -141,12 +141,12 @@ const waHref = `https://wa.me/${wa.number}?text=${encodeURIComponent(wa.message)
     flex: none;
   }
 
-  /* declared after the orange hover so the glow colour wins */
+  /* lighter mint glow on hover/active so the state change still reads clearly */
   .banner-wa:hover {
-    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 10px 28px rgba(82, 224, 147, 0.5);
   }
 
   .banner-wa:active {
-    box-shadow: 0 5px 16px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 5px 16px rgba(82, 224, 147, 0.45);
   }
 </style>
