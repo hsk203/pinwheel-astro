@@ -267,8 +267,19 @@
           <line x1="285.3" y1="428" x2="288.7" y2="428" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
           <circle cx="313" cy="428" r="2.2" fill="none" stroke="#1b3a6b" stroke-width=".8"/>
           <line x1="311.3" y1="428" x2="314.7" y2="428" stroke="#1b3a6b" stroke-width=".7" stroke-linecap="round"/>
-          <!-- digital temperature -->
-          <text x="300" y="444" text-anchor="middle" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; font-weight:700; fill:#1b3a6b;">26.0<tspan dx="0.5" style="font-size:6px; font-weight:400;">°C</tspan></text>
+          <!-- digital temperature: climbs from 18.0 to 26.0, one step per second -->
+          <g style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; font-weight:700; fill:#1b3a6b;">
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:0s">18.0</text>
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:1s">19.0</text>
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:2s">20.0</text>
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:3s">21.0</text>
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:4s">22.0</text>
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:5s">23.0</text>
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:6s">24.0</text>
+            <text class="tstat-temp" x="296" y="444" text-anchor="middle" style="animation-delay:7s">25.0</text>
+            <text class="tstat-temp tstat-temp-hold" x="296" y="444" text-anchor="middle" style="animation-delay:8s">26.0</text>
+          </g>
+          <text x="311.5" y="444" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:6px; font-weight:400; fill:#1b3a6b;">°C</text>
           <!-- bottom mode indicators (blink in sequence) -->
           <circle class="tstat-led" cx="291" cy="455" r="1.8" fill="#F97316" style="animation-delay:0s"/>
           <circle class="tstat-led" cx="300" cy="455" r="1.8" fill="#F97316" style="animation-delay:.35s"/>
@@ -291,39 +302,36 @@
         <!-- 5 smart door lock: keypad + handle with a fingerprint reader -->
         <g class="float" style="animation-delay:1.7s">
           <!-- slim body -->
-          <rect x="487" y="423" width="24" height="40" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <!-- keypad 3 x 4, keys light up in a wave -->
+          <rect x="489" y="423" width="20" height="40" rx="4.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <!-- keypad 3 x 3, keys light up in a wave -->
           <g fill="#94A3B8">
-            <circle class="lock-key" cx="493.5" cy="429.5" r="1.2" style="animation-delay:0s"/>
+            <circle class="lock-key" cx="494.5" cy="429.5" r="1.2" style="animation-delay:0s"/>
             <circle class="lock-key" cx="499" cy="429.5" r="1.2" style="animation-delay:.25s"/>
-            <circle class="lock-key" cx="504.5" cy="429.5" r="1.2" style="animation-delay:.5s"/>
-            <circle class="lock-key" cx="493.5" cy="434" r="1.2" style="animation-delay:.75s"/>
+            <circle class="lock-key" cx="503.5" cy="429.5" r="1.2" style="animation-delay:.5s"/>
+            <circle class="lock-key" cx="494.5" cy="434" r="1.2" style="animation-delay:.75s"/>
             <circle class="lock-key" cx="499" cy="434" r="1.2" style="animation-delay:1s"/>
-            <circle class="lock-key" cx="504.5" cy="434" r="1.2" style="animation-delay:1.25s"/>
-            <circle class="lock-key" cx="493.5" cy="438.5" r="1.2" style="animation-delay:1.5s"/>
+            <circle class="lock-key" cx="503.5" cy="434" r="1.2" style="animation-delay:1.25s"/>
+            <circle class="lock-key" cx="494.5" cy="438.5" r="1.2" style="animation-delay:1.5s"/>
             <circle class="lock-key" cx="499" cy="438.5" r="1.2" style="animation-delay:1.75s"/>
-            <circle class="lock-key" cx="504.5" cy="438.5" r="1.2" style="animation-delay:2s"/>
-            <circle class="lock-key" cx="493.5" cy="443" r="1.2" style="animation-delay:2.25s"/>
-            <circle class="lock-key" cx="499" cy="443" r="1.2" style="animation-delay:2.5s"/>
-            <circle class="lock-key" cx="504.5" cy="443" r="1.2" style="animation-delay:2.75s"/>
+            <circle class="lock-key" cx="503.5" cy="438.5" r="1.2" style="animation-delay:2s"/>
           </g>
           <!-- card slot -->
-          <rect x="494" y="453" width="10" height="6" rx="1.5" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>
+          <rect x="494" y="452" width="10" height="6" rx="1.5" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>
           <!-- handle (presses down after a fingerprint read) -->
           <g class="lock-handle">
-            <rect x="507.5" y="445.6" width="15" height="4.8" rx="2.4" fill="#94A3B8"/>
+            <rect x="508.5" y="445.6" width="15" height="4.8" rx="2.4" fill="#94A3B8"/>
           </g>
           <!-- fingerprint reader on the handle rose -->
-          <circle cx="505.5" cy="448" r="3.2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.2"/>
+          <circle cx="506.5" cy="448" r="3.2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.2"/>
           <g fill="none" stroke="#F97316" stroke-width=".8" stroke-linecap="round">
-            <circle cx="505.5" cy="448" r=".7" fill="#F97316" stroke="none"/>
-            <path d="M504.3 448 a1.2 1.2 0 0 1 2.4 0"/>
-            <path d="M503.6 448.2 a1.9 1.9 0 0 0 3.8 0" stroke-dasharray="2 1.2"/>
+            <circle cx="506.5" cy="448" r=".7" fill="#F97316" stroke="none"/>
+            <path d="M505.3 448 a1.2 1.2 0 0 1 2.4 0"/>
+            <path d="M504.6 448.2 a1.9 1.9 0 0 0 3.8 0" stroke-dasharray="2 1.2"/>
           </g>
           <!-- expanding fingerprint scan ring -->
-          <circle class="lock-fp-ring" cx="505.5" cy="448" r="5" fill="none" stroke="#F97316" stroke-width="1.2"/>
-          <text x="504" y="482" text-anchor="middle" class="lbl">Smart Door</text>
-          <text x="504" y="495" text-anchor="middle" class="lbl">Lock</text>
+          <circle class="lock-fp-ring" cx="506.5" cy="448" r="5" fill="none" stroke="#F97316" stroke-width="1.2"/>
+          <text x="502" y="482" text-anchor="middle" class="lbl">Smart Door</text>
+          <text x="502" y="495" text-anchor="middle" class="lbl">Lock</text>
         </g>
         <!-- 6 IR remote controller -->
         <g class="float" style="animation-delay:2.1s">
@@ -401,24 +409,24 @@
           </g>
           <text x="560" y="578" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- garage (single-storey house; the car slides out to the right through the door) -->
+        <!-- garage: open carport with a wide roof; the car pulls out to the right -->
         <g>
-          <!-- car starts hidden behind the left wall, then pulls right through the door -->
+          <!-- car parked inside the bay, then drives out and returns -->
           <g class="eco-car">
-            <path d="M632 548 L634 544 Q635 543 637 543 L643 543 Q645 543 646 544 L648 548 Z" fill="#F97316"/>
-            <rect x="632" y="548" width="22" height="7" rx="2.5" fill="#F97316"/>
-            <path d="M638.8 547.6 L640.7 544.6 L644.8 544.6 L646.6 547.6 Z" fill="#FFEDD5"/>
-            <circle cx="646.8" cy="550" r="1.1" fill="#FEF3C7"/>
-            <circle cx="637" cy="553" r="2" fill="#475569"/>
-            <circle cx="649" cy="553" r="2" fill="#475569"/>
+            <path d="M648 547.5 L650.5 543 Q651.5 541.5 653.5 541.5 L660 541.5 Q662.5 541.5 663.8 543.5 L665.5 546.5 L669 547.5 Q671.5 548 671.5 550.5 L671.5 554 Q671.5 555.5 670 555.5 L643 555.5 Q641.5 555.5 641.5 554 L641.5 550 Q641.5 548 643.5 547.6 Z" fill="#F97316"/>
+            <path d="M652 547 L653.5 543.5 Q654 542.7 655 542.7 L659.5 542.7 Q660.8 542.7 661.5 543.9 L662.8 547 Z" fill="#FFEDD5"/>
+            <circle cx="649" cy="557.2" r="2.6" fill="#475569"/>
+            <circle cx="664" cy="557.2" r="2.6" fill="#475569"/>
           </g>
-          <!-- house body: left wall + roof, door opening on the right (door baseline = house baseline) -->
-          <path d="M632 524 H678 V560 H632 V524 Z M654 534 H678 V560 H654 V534 Z" fill="#fff" stroke="#94A3B8" stroke-width="1.6" fill-rule="evenodd"/>
-          <!-- gable roof -->
-          <path d="M628 524 L655 511 L682 524" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
-          <!-- garage door frame -->
-          <rect x="654" y="534" width="24" height="26" fill="none" stroke="#F97316" stroke-width="1.4"/>
-          <text x="658" y="578" text-anchor="middle" class="lbl">Garage</text>
+          <!-- wide gable roof with eaves overhang -->
+          <path d="M622 523 L655 511 L690 523" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linejoin="round"/>
+          <!-- side columns -->
+          <path d="M632 523 V560 M682 523 V560" fill="none" stroke="#94A3B8" stroke-width="1.6"/>
+          <!-- opened door header -->
+          <path d="M632 530 H682 M632 534 H682" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+          <!-- ground line -->
+          <path d="M626 560 H688" fill="none" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+          <text x="656" y="578" text-anchor="middle" class="lbl">Garage</text>
         </g>
         <!-- RF remote -->
         <g class="float" style="animation-delay:1.5s">
@@ -610,6 +618,22 @@
     }
   }
 
+  /* thermostat temperature climbs from 18.0 to 26.0, one step per second */
+  .tstat-temp {
+    opacity: 0;
+    animation: tstat-temp 9s linear infinite;
+  }
+  @keyframes tstat-temp {
+    0%,
+    10.9% {
+      opacity: 1;
+    }
+    11%,
+    100% {
+      opacity: 0;
+    }
+  }
+
   /* smoke alarm: expanding detection ping + blinking status led */
   .smoke-pulse {
     transform-origin: 800px 443px;
@@ -651,11 +675,11 @@
     }
   }
   .lock-fp-ring {
-    transform-origin: 505.5px 448px;
+    transform-origin: 506.5px 448px;
     animation: eco-smoke 2.2s ease-out infinite;
   }
   .lock-handle {
-    transform-origin: 505.5px 448px;
+    transform-origin: 506.5px 448px;
     animation: lock-turn 4.4s ease-in-out infinite;
   }
   @keyframes lock-turn {
@@ -699,7 +723,7 @@
     }
   }
 
-  /* a car noses out of the garage to the left, waits, then backs in */
+  /* a car noses out of the open bay to the right, waits, then backs in */
   .eco-car {
     animation: eco-car 4.4s ease-in-out infinite;
   }
@@ -710,7 +734,7 @@
     }
     46%,
     80% {
-      transform: translateX(25px);
+      transform: translateX(50px);
     }
     100% {
       transform: translateX(0);
@@ -799,6 +823,7 @@
     .eco-car,
     .led,
     .tstat-led,
+    .tstat-temp,
     .smoke-pulse,
     .smoke-led,
     .curtain-drive,
@@ -812,10 +837,13 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(25px);
+      transform: translateX(50px);
     }
     .tstat-led {
       opacity: 0.7;
+    }
+    .tstat-temp-hold {
+      opacity: 1;
     }
     .pkts {
       display: none;
