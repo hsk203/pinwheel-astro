@@ -11,7 +11,7 @@
 
   <div class="container eco-wide">
     <div class="eco-figure">
-      <svg viewBox="45 11 1120 576" role="img" aria-label="Smart home communication diagram: cloud, router and mobile phone outside the home; Wi-Fi branches to voice assistants and the Tuya platform gateways (Zigbee / BLE-mesh); Matter over Wi-Fi and Thread; a device bus connects free posting switch, smart switches 1-4, thermostat, curtain motor, smart door lock, RF remote, camera, smoke alarm, motion sensor, robot vacuum, control panel, plus fan, and a garage with a car pulling out.">
+      <svg viewBox="45 11 1070 501" role="img" aria-label="Smart home communication diagram: cloud, router and mobile phone outside the home; Wi-Fi branches to voice assistants and the Tuya platform gateways (Zigbee / BLE-mesh); Matter over Wi-Fi and Thread; a single-row device bus connects free posting switch, smart switches 1-4, thermostat, robot vacuum, smart door lock, camera, fan, garage, RF remote, smoke alarm, motion sensor, curtain motor and control panel.">
         <!-- decorations -->
         <g>
           <circle cx="330" cy="118" r="3" fill="#F97316" opacity=".45"/>
@@ -46,23 +46,21 @@
           <path class="flow" d="M490 318 V411"/>
           <path class="flow" d="M710 318 V411"/>
           <!-- device bus (ends flush with the first / last stub) -->
-          <path class="flow" d="M100 411 H1100"/>
-          <!-- bus -> fan branch -->
-          <path class="flow" d="M655 411 V522"/>
-          <path class="flow" d="M560 507 H655"/>
-          <path class="flow" d="M560 507 V519"/>
+          <path class="flow" d="M100 411 H1060"/>
           <!-- device stubs -->
           <path class="flow" d="M100 411 V423"/>
-          <path class="flow" d="M200 411 V423"/>
-          <path class="flow" d="M300 411 V423"/>
-          <path class="flow" d="M400 411 V436"/>
+          <path class="flow" d="M180 411 V423"/>
+          <path class="flow" d="M260 411 V423"/>
+          <path class="flow" d="M340 411 V436"/>
+          <path class="flow" d="M420 411 V423"/>
           <path class="flow" d="M500 411 V423"/>
-          <path class="flow" d="M600 411 V423"/>
-          <path class="flow" d="M700 411 V423"/>
-          <path class="flow" d="M800 411 V423"/>
+          <path class="flow" d="M580 411 V426"/>
+          <path class="flow" d="M660 411 V430"/>
+          <path class="flow" d="M740 411 V423"/>
+          <path class="flow" d="M820 411 V423"/>
           <path class="flow" d="M900 411 V423"/>
-          <path class="flow" d="M1000 411 V430"/>
-          <path class="flow" d="M1100 411 V423"/>
+          <path class="flow" d="M980 411 V430"/>
+          <path class="flow" d="M1060 411 V423"/>
         </g>
 
         <!-- ============ traveling packets ============ -->
@@ -109,11 +107,11 @@
           </circle>
           <!-- device bus sweep to the control panel -->
           <circle class="pkt" r="2.8" fill="#F97316">
-            <animateMotion dur="3s" begin="1.8s" repeatCount="indefinite" path="M710 411 L1100 411 L1100 423"/>
+            <animateMotion dur="3s" begin="1.8s" repeatCount="indefinite" path="M710 411 L1060 411 L1060 423"/>
           </circle>
           <!-- device bus -> fan branch -->
           <circle class="pkt" r="2.8" fill="#FBBF24">
-            <animateMotion dur="3s" begin="0.8s" repeatCount="indefinite" path="M490 411 L655 411 L655 507 L560 507 L560 519"/>
+            <animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M490 411 L580 411 L580 424"/>
           </circle>
         </g>
 
@@ -254,7 +252,7 @@
           <text x="1020" y="385" text-anchor="middle" class="note">over Wi-Fi · over Thread</text>
         </g>
 
-        <!-- ============ device row ============ -->
+        <!-- ============ device row (single row, x = 100 .. 1060, step 80) ============ -->
         <!-- 1 wire-free switch -->
         <g class="float" style="animation-delay:.1s">
           <rect x="80" y="423" width="40" height="40" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
@@ -264,171 +262,211 @@
         </g>
         <!-- 2 smart switch 1/2/3/4 -->
         <g class="float" style="animation-delay:.5s">
-          <rect x="180" y="423" width="40" height="40" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <rect x="188" y="431" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
-          <rect x="202" y="431" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
-          <rect x="188" y="445" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
-          <rect x="202" y="445" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
-          <text x="200" y="482" text-anchor="middle" class="lbl">Smart Switch</text>
-          <text x="200" y="495" text-anchor="middle" class="lbl">1 / 2 / 3 / 4</text>
+          <rect x="160" y="423" width="40" height="40" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="168" y="431" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <rect x="182" y="431" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <rect x="168" y="445" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <rect x="182" y="445" width="10" height="10" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <text x="180" y="482" text-anchor="middle" class="lbl">Smart Switch</text>
+          <text x="180" y="495" text-anchor="middle" class="lbl">1 / 2 / 3 / 4</text>
         </g>
         <!-- 3 thermostat -->
         <g class="float" style="animation-delay:.9s">
           <!-- white panel, consistent with the other device icons -->
-          <rect x="280" y="421" width="40" height="44" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="240" y="421" width="40" height="44" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <!-- level bars: fill up segment by segment, hold, then all reset -->
           <g>
-            <rect class="tstat-bar bar-1" x="288" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
-            <rect class="tstat-bar bar-2" x="293" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
-            <rect class="tstat-bar bar-3" x="298" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
-            <rect class="tstat-bar bar-4" x="303" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
-            <rect class="tstat-bar bar-5" x="308" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
-            <rect class="tstat-bar bar-6" x="313" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
+            <rect class="tstat-bar bar-1" x="248" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
+            <rect class="tstat-bar bar-2" x="253" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
+            <rect class="tstat-bar bar-3" x="258" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
+            <rect class="tstat-bar bar-4" x="263" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
+            <rect class="tstat-bar bar-5" x="268" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
+            <rect class="tstat-bar bar-6" x="273" y="424" width="3" height="6.5" rx="1" fill="#F97316"/>
           </g>
           <!-- temperature climbs 18 -> 26 ℃ (whole degrees, no decimal point) -->
           <g style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; font-weight:700; fill:#F97316;">
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:0s">18</text>
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:1s">19</text>
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:2s">20</text>
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:3s">21</text>
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:4s">22</text>
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:5s">23</text>
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:6s">24</text>
-            <text class="tstat-temp" x="297" y="444" text-anchor="middle" style="animation-delay:7s">25</text>
-            <text class="tstat-temp tstat-temp-hold" x="297" y="444" text-anchor="middle" style="animation-delay:8s">26</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:0s">18</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:1s">19</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:2s">20</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:3s">21</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:4s">22</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:5s">23</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:6s">24</text>
+            <text class="tstat-temp" x="257" y="444" text-anchor="middle" style="animation-delay:7s">25</text>
+            <text class="tstat-temp tstat-temp-hold" x="257" y="444" text-anchor="middle" style="animation-delay:8s">26</text>
           </g>
           <!-- degree mark: ring + C so it never renders tilted -->
-          <circle cx="307.6" cy="436.4" r="1.6" fill="none" stroke="#F97316" stroke-width="1.1"/>
-          <text x="309.4" y="444" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10px; font-weight:700; fill:#F97316;">C</text>
+          <circle cx="267.6" cy="436.4" r="1.6" fill="none" stroke="#F97316" stroke-width="1.1"/>
+          <text x="269.4" y="444" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10px; font-weight:700; fill:#F97316;">C</text>
           <!-- bottom mode indicators (blink in sequence) -->
-          <circle class="tstat-led" cx="291" cy="455" r="1.8" fill="#F97316" style="animation-delay:0s"/>
-          <circle class="tstat-led" cx="300" cy="455" r="1.8" fill="#F97316" style="animation-delay:.35s"/>
-          <circle class="tstat-led" cx="309" cy="455" r="1.8" fill="#F97316" style="animation-delay:.7s"/>
-          <text x="300" y="482" text-anchor="middle" class="lbl">Thermostat</text>
+          <circle class="tstat-led" cx="251" cy="455" r="1.8" fill="#F97316" style="animation-delay:0s"/>
+          <circle class="tstat-led" cx="260" cy="455" r="1.8" fill="#F97316" style="animation-delay:.35s"/>
+          <circle class="tstat-led" cx="269" cy="455" r="1.8" fill="#F97316" style="animation-delay:.7s"/>
+          <text x="260" y="482" text-anchor="middle" class="lbl">Thermostat</text>
         </g>
         <!-- 4 robot vacuum: the robot slides out of its base dock and returns -->
         <g class="float" style="animation-delay:1.6s">
           <!-- robot: LDS turret, wheel, body, bumper line, front sensor -->
           <g class="eco-vac">
-            <rect x="397" y="451" width="6" height="2.6" rx="1.3" fill="#fff" stroke="#CBD5E1" stroke-width="1.1"/>
-            <circle cx="394" cy="461.4" r="1.6" fill="#475569"/>
-            <rect x="390" y="453.5" width="22" height="8.5" rx="4.2" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
-            <line x1="405.7" y1="454.3" x2="405.7" y2="461.2" stroke="#CBD5E1" stroke-width="1"/>
-            <circle cx="408" cy="456.2" r="1.2" fill="#F97316"/>
+            <rect x="337" y="451" width="6" height="2.6" rx="1.3" fill="#fff" stroke="#CBD5E1" stroke-width="1.1"/>
+            <circle cx="334" cy="461.4" r="1.6" fill="#475569"/>
+            <rect x="330" y="453.5" width="22" height="8.5" rx="4.2" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+            <line x1="345.7" y1="454.3" x2="345.7" y2="461.2" stroke="#CBD5E1" stroke-width="1"/>
+            <circle cx="348" cy="456.2" r="1.2" fill="#F97316"/>
           </g>
           <!-- base dock: short unit, drawn on top so the robot emerges from inside -->
-          <rect x="388" y="436" width="24" height="27" rx="4" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="328" y="436" width="24" height="27" rx="4" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <!-- dock bay mouth the robot drives out of -->
-          <rect x="387.2" y="450" width="6" height="11.5" rx="1.8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+          <rect x="327.2" y="450" width="6" height="11.5" rx="1.8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
           <!-- panel seam + side vents -->
-          <line x1="390" y1="444.5" x2="410" y2="444.5" stroke="#CBD5E1" stroke-width="1"/>
-          <line x1="392" y1="448" x2="399.5" y2="448" stroke="#CBD5E1" stroke-width="1"/>
-          <line x1="394" y1="451" x2="399.5" y2="451" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="330" y1="444.5" x2="350" y2="444.5" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="332" y1="448" x2="339.5" y2="448" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="334" y1="451" x2="339.5" y2="451" stroke="#CBD5E1" stroke-width="1"/>
           <!-- charging led + floor plate -->
-          <circle class="smoke-led" cx="400" cy="441" r="1.3" fill="#F97316"/>
-          <line x1="387" y1="463" x2="413" y2="463" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
-          <text x="400" y="482" text-anchor="middle" class="lbl">Robot Vacuum</text>
+          <circle class="smoke-led" cx="340" cy="441" r="1.3" fill="#F97316"/>
+          <line x1="327" y1="463" x2="353" y2="463" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+          <text x="340" y="482" text-anchor="middle" class="lbl">Robot Vacuum</text>
         </g>
         <!-- 5 smart door lock: keypad + handle with a fingerprint reader -->
         <g class="float" style="animation-delay:1.7s">
           <!-- slim body -->
-          <rect x="489" y="423" width="20" height="40" rx="4.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="409" y="423" width="20" height="40" rx="4.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <!-- keypad 3 x 3, keys light up in a wave -->
           <g fill="#94A3B8">
-            <circle class="lock-key" cx="494.5" cy="429.5" r="1.2" style="animation-delay:0s"/>
-            <circle class="lock-key" cx="499" cy="429.5" r="1.2" style="animation-delay:.25s"/>
-            <circle class="lock-key" cx="503.5" cy="429.5" r="1.2" style="animation-delay:.5s"/>
-            <circle class="lock-key" cx="494.5" cy="434" r="1.2" style="animation-delay:.75s"/>
-            <circle class="lock-key" cx="499" cy="434" r="1.2" style="animation-delay:1s"/>
-            <circle class="lock-key" cx="503.5" cy="434" r="1.2" style="animation-delay:1.25s"/>
-            <circle class="lock-key" cx="494.5" cy="438.5" r="1.2" style="animation-delay:1.5s"/>
-            <circle class="lock-key" cx="499" cy="438.5" r="1.2" style="animation-delay:1.75s"/>
-            <circle class="lock-key" cx="503.5" cy="438.5" r="1.2" style="animation-delay:2s"/>
+            <circle class="lock-key" cx="414.5" cy="429.5" r="1.2" style="animation-delay:0s"/>
+            <circle class="lock-key" cx="419" cy="429.5" r="1.2" style="animation-delay:.25s"/>
+            <circle class="lock-key" cx="423.5" cy="429.5" r="1.2" style="animation-delay:.5s"/>
+            <circle class="lock-key" cx="414.5" cy="434" r="1.2" style="animation-delay:.75s"/>
+            <circle class="lock-key" cx="419" cy="434" r="1.2" style="animation-delay:1s"/>
+            <circle class="lock-key" cx="423.5" cy="434" r="1.2" style="animation-delay:1.25s"/>
+            <circle class="lock-key" cx="414.5" cy="438.5" r="1.2" style="animation-delay:1.5s"/>
+            <circle class="lock-key" cx="419" cy="438.5" r="1.2" style="animation-delay:1.75s"/>
+            <circle class="lock-key" cx="423.5" cy="438.5" r="1.2" style="animation-delay:2s"/>
           </g>
           <!-- card slot -->
-          <rect x="494" y="452" width="10" height="6" rx="1.5" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>
+          <rect x="414" y="452" width="10" height="6" rx="1.5" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>
           <!-- handle (presses down after a fingerprint read) -->
           <g class="lock-handle">
-            <rect x="508.5" y="445.6" width="15" height="4.8" rx="2.4" fill="#94A3B8"/>
+            <rect x="428.5" y="445.6" width="15" height="4.8" rx="2.4" fill="#94A3B8"/>
           </g>
           <!-- fingerprint reader on the handle rose -->
-          <circle cx="506.5" cy="448" r="3.2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.2"/>
+          <circle cx="426.5" cy="448" r="3.2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.2"/>
           <g fill="none" stroke="#F97316" stroke-width=".8" stroke-linecap="round">
-            <circle cx="506.5" cy="448" r=".7" fill="#F97316" stroke="none"/>
-            <path d="M505.3 448 a1.2 1.2 0 0 1 2.4 0"/>
-            <path d="M504.6 448.2 a1.9 1.9 0 0 0 3.8 0" stroke-dasharray="2 1.2"/>
+            <circle cx="426.5" cy="448" r=".7" fill="#F97316" stroke="none"/>
+            <path d="M425.3 448 a1.2 1.2 0 0 1 2.4 0"/>
+            <path d="M424.6 448.2 a1.9 1.9 0 0 0 3.8 0" stroke-dasharray="2 1.2"/>
           </g>
           <!-- expanding fingerprint scan ring -->
-          <circle class="lock-fp-ring" cx="506.5" cy="448" r="5" fill="none" stroke="#F97316" stroke-width="1.2"/>
-          <text x="502" y="482" text-anchor="middle" class="lbl">Smart Door</text>
-          <text x="502" y="495" text-anchor="middle" class="lbl">Lock</text>
+          <circle class="lock-fp-ring" cx="426.5" cy="448" r="5" fill="none" stroke="#F97316" stroke-width="1.2"/>
+          <text x="422" y="482" text-anchor="middle" class="lbl">Smart Door</text>
+          <text x="422" y="495" text-anchor="middle" class="lbl">Lock</text>
         </g>
         <!-- 6 camera -->
         <g class="float" style="animation-delay:.4s">
           <!-- ptz camera: the head stays put, the face turns left / right -->
-          <circle cx="600" cy="437" r="14" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <circle cx="500" cy="437" r="14" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <g class="cam-lens">
             <!-- inner face panel -->
-            <rect x="591.5" y="426.5" width="17" height="19.5" rx="8" fill="none" stroke="#94A3B8" stroke-width="1.2"/>
+            <rect x="491.5" y="426.5" width="17" height="19.5" rx="8" fill="none" stroke="#94A3B8" stroke-width="1.2"/>
             <!-- status led -->
-            <circle cx="600" cy="431" r="1.1" fill="#F97316"/>
+            <circle cx="500" cy="431" r="1.1" fill="#F97316"/>
             <!-- lens: outer ring + iris + pupil -->
-            <circle cx="600" cy="437.5" r="5.5" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
-            <circle cx="600" cy="437.5" r="3.1" fill="none" stroke="#F97316" stroke-width="1.3"/>
-            <circle cx="600" cy="437.5" r="1.25" fill="#F97316"/>
+            <circle cx="500" cy="437.5" r="5.5" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
+            <circle cx="500" cy="437.5" r="3.1" fill="none" stroke="#F97316" stroke-width="1.3"/>
+            <circle cx="500" cy="437.5" r="1.25" fill="#F97316"/>
           </g>
           <!-- flared base: narrow at the top (hugging the head), wide flat bottom, vent dots -->
-          <path d="M590.3 447.1 A14 14 0 0 0 609.7 447.1 L619 463 H581 Z" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <path d="M490.3 447.1 A14 14 0 0 0 509.7 447.1 L519 463 H481 Z" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <g fill="#94A3B8">
-            <circle cx="586.5" cy="456.5" r=".65"/>
-            <circle cx="588" cy="457.8" r=".65"/>
-            <circle cx="589.6" cy="458.9" r=".65"/>
+            <circle cx="486.5" cy="456.5" r=".65"/>
+            <circle cx="488" cy="457.8" r=".65"/>
+            <circle cx="489.6" cy="458.9" r=".65"/>
           </g>
-          <text x="600" y="482" text-anchor="middle" class="lbl">Camera</text>
+          <text x="500" y="482" text-anchor="middle" class="lbl">Camera</text>
         </g>
-        <!-- 7 RF remote: signal waves pulse out, then the centre button presses -->
+        <!-- 7 circulation fan: the ring head sways, the blades spin inside it -->
+        <g class="float" style="animation-delay:1.4s">
+          <!-- stand + base (static): the column runs into the centre of the base.
+               the base is drawn a touch smaller than the ring head so the icon
+               stays light next to the neighbouring device tiles -->
+          <ellipse cx="580" cy="464.5" rx="9.5" ry="2.1" fill="#fff" stroke="#CBD5E1" stroke-width="1.3"/>
+          <line x1="580" y1="446" x2="580" y2="464.5" stroke="#CBD5E1" stroke-width="1.4"/>
+          <!-- swaying head -->
+          <g class="fan-head">
+            <circle cx="580" cy="436" r="10" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+            <g class="fan-blades" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round">
+              <line x1="580" y1="436" x2="580" y2="429"/>
+              <line x1="580" y1="436" x2="586" y2="441"/>
+              <line x1="580" y1="436" x2="574" y2="441"/>
+            </g>
+            <circle cx="580" cy="436" r="3" fill="#F97316"/>
+          </g>
+          <text x="580" y="482" text-anchor="middle" class="lbl">Fan</text>
+        </g>
+        <!-- 8 garage: flat-roof; the car waits behind the wall and noses out through the door -->
+        <g class="float" style="animation-delay:1.9s">
+          <!-- body block -->
+          <rect x="644" y="440" width="32" height="23" rx="3" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
+          <!-- header band (simple wall block above the door) -->
+          <rect x="644" y="440" width="32" height="5" fill="#fff" stroke="#94A3B8" stroke-width="1.2"/>
+          <!-- garage door -->
+          <rect x="650" y="449" width="20" height="14" fill="#fff" stroke="#94A3B8" stroke-width="1.2"/>
+          <!-- car: hidden behind the wall, appears at the door's left edge, then pulls out -->
+          <g clip-path="url(#garageCarClip)">
+            <g class="eco-car">
+              <path d="M658 456 L659.6 453.4 Q660.2 452.4 661.5 452.4 L665.7 452.4 Q667.3 452.4 668.1 453.7 L669.2 455.6 L671.5 456.3 Q673.2 456.6 673.2 458.2 L673.2 460.5 Q673.2 461.5 672.2 461.5 L653.7 461.5 Q652.7 461.5 652.7 460.5 L652.7 457.7 Q652.7 456.4 654 456.1 Z" fill="#F97316"/>
+              <path d="M660.7 456 L661.6 453.7 Q662 453.1 662.6 453.1 L665.5 453.1 Q666.4 453.1 666.8 453.9 L667.7 456 Z" fill="#FFEDD5"/>
+              <circle cx="658.7" cy="462.6" r="1.9" fill="#475569"/>
+              <circle cx="668.5" cy="462.6" r="1.9" fill="#475569"/>
+            </g>
+          </g>
+          <!-- ground line, flush with the body -->
+          <path d="M644 463 H676" fill="none" stroke="#CBD5E1" stroke-width="1.4" stroke-linecap="round"/>
+          <text x="660" y="482" text-anchor="middle" class="lbl">Garage</text>
+        </g>
+        <!-- 9 RF remote: signal waves pulse out, then the centre button presses -->
         <g class="float" style="animation-delay:2.1s">
           <!-- signal waves -->
-          <circle class="wifi-dot" cx="700" cy="429.6" r="1.1" fill="#F97316"/>
+          <circle class="wifi-dot" cx="740" cy="429.6" r="1.1" fill="#F97316"/>
           <g fill="none" stroke="#F97316" stroke-width="1.3" stroke-linecap="round">
-            <path class="wifi-a1" d="M696.6 427.6 a4.8 4.8 0 0 1 6.8 0"/>
-            <path class="wifi-a2" d="M694 425.2 a8.6 8.6 0 0 1 12 0"/>
+            <path class="wifi-a1" d="M736.6 427.6 a4.8 4.8 0 0 1 6.8 0"/>
+            <path class="wifi-a2" d="M734 425.2 a8.6 8.6 0 0 1 12 0"/>
           </g>
           <!-- body -->
-          <rect x="688" y="431" width="24" height="32" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="728" y="431" width="24" height="32" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <!-- button grid -->
           <g fill="#CBD5E1">
-            <circle cx="694.5" cy="438" r="1.4"/>
-            <circle cx="700" cy="438" r="1.4"/>
-            <circle cx="705.5" cy="438" r="1.4"/>
-            <circle cx="694.5" cy="443" r="1.4"/>
-            <circle cx="700" cy="443" r="1.4"/>
-            <circle cx="705.5" cy="443" r="1.4"/>
-            <circle cx="694.5" cy="448" r="1.4"/>
-            <circle cx="705.5" cy="448" r="1.4"/>
+            <circle cx="734.5" cy="438" r="1.4"/>
+            <circle cx="740" cy="438" r="1.4"/>
+            <circle cx="745.5" cy="438" r="1.4"/>
+            <circle cx="734.5" cy="443" r="1.4"/>
+            <circle cx="740" cy="443" r="1.4"/>
+            <circle cx="745.5" cy="443" r="1.4"/>
+            <circle cx="734.5" cy="448" r="1.4"/>
+            <circle cx="745.5" cy="448" r="1.4"/>
           </g>
           <!-- d-pad cluster; the centre button presses to send -->
-          <circle cx="700" cy="452.6" r="1.2" fill="#CBD5E1"/>
-          <circle cx="700" cy="458.4" r="1.2" fill="#CBD5E1"/>
-          <circle cx="696.6" cy="455.5" r="1.2" fill="#CBD5E1"/>
-          <circle cx="703.4" cy="455.5" r="1.2" fill="#CBD5E1"/>
-          <circle class="rf-btn" cx="700" cy="455.5" r="1.9" fill="#F97316"/>
-          <text x="700" y="482" text-anchor="middle" class="lbl">RF Remote</text>
+          <circle cx="740" cy="452.6" r="1.2" fill="#CBD5E1"/>
+          <circle cx="740" cy="458.4" r="1.2" fill="#CBD5E1"/>
+          <circle cx="736.6" cy="455.5" r="1.2" fill="#CBD5E1"/>
+          <circle cx="743.4" cy="455.5" r="1.2" fill="#CBD5E1"/>
+          <circle class="rf-btn" cx="740" cy="455.5" r="1.9" fill="#F97316"/>
+          <text x="740" y="482" text-anchor="middle" class="lbl">RF Remote</text>
         </g>
-        <!-- 8 smoke alarm -->
+        <!-- 10 smoke alarm -->
         <g class="float" style="animation-delay:.8s">
           <!-- pulsing detection ring -->
-          <circle class="smoke-pulse" cx="800" cy="443" r="16" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <circle class="smoke-pulse" cx="820" cy="443" r="16" fill="none" stroke="#F97316" stroke-width="1.4"/>
           <!-- body -->
-          <circle cx="800" cy="443" r="16" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <circle cx="820" cy="443" r="16" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <!-- perforation ring -->
-          <circle cx="800" cy="443" r="12" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="2 2.4"/>
+          <circle cx="820" cy="443" r="12" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="2 2.4"/>
           <!-- centre button + led -->
-          <circle cx="800" cy="443" r="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.3"/>
-          <circle class="smoke-led" cx="800" cy="443" r="2" fill="#F97316"/>
-          <text x="800" y="482" text-anchor="middle" class="lbl">Smoke Alarm</text>
+          <circle cx="820" cy="443" r="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.3"/>
+          <circle class="smoke-led" cx="820" cy="443" r="2" fill="#F97316"/>
+          <text x="820" y="482" text-anchor="middle" class="lbl">Smoke Alarm</text>
         </g>
-        <!-- 9 motion sensor: an outward pulse ring plus detection arcs that sweep one after another -->
+        <!-- 11 motion sensor: an outward pulse ring plus detection arcs that sweep one after another -->
         <g class="float" style="animation-delay:1.2s">
           <!-- outward pulse ring, mirroring the smoke alarm -->
           <circle class="ms-pulse" cx="900" cy="442" r="12" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>
@@ -437,67 +475,27 @@
           <path class="ms-arc ms-arc-2" d="M903 431 q6 10 0 20" fill="none" stroke="#F97316" stroke-width="1.3" stroke-linecap="round"/>
           <text x="900" y="482" text-anchor="middle" class="lbl">Motion Sensor</text>
         </g>
-        <!-- 10 curtain motor -->
+        <!-- 12 curtain motor -->
         <g class="float" style="animation-delay:1.3s">
           <!-- capsule body -->
-          <rect x="983" y="430" width="34" height="34" rx="11" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="963" y="430" width="34" height="34" rx="11" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <!-- rotating drive ring with a green clutch -->
           <g class="curtain-drive">
-            <circle cx="1000" cy="441" r="10" fill="none" stroke="#CBD5E1" stroke-width="1.4"/>
-            <circle cx="1000" cy="441" r="6" fill="none" stroke="#CBD5E1" stroke-width="1"/>
-            <line x1="1000" y1="434.5" x2="1000" y2="437" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"/>
-            <circle cx="1000" cy="441" r="2.2" fill="#22C55E"/>
+            <circle cx="980" cy="441" r="10" fill="none" stroke="#CBD5E1" stroke-width="1.4"/>
+            <circle cx="980" cy="441" r="6" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="980" y1="434.5" x2="980" y2="437" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="980" cy="441" r="2.2" fill="#22C55E"/>
           </g>
-          <text x="1000" y="482" text-anchor="middle" class="lbl">Curtain Motor</text>
+          <text x="980" y="482" text-anchor="middle" class="lbl">Curtain Motor</text>
         </g>
-        <!-- 11 control panel -->
+        <!-- 13 control panel -->
         <g class="float" style="animation-delay:2s">
-          <rect x="1076" y="423" width="48" height="38" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <rect x="1084" y="430" width="22" height="16" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
-          <circle cx="1116" cy="436" r="2.5" fill="#F97316"/>
-          <circle cx="1116" cy="444" r="2.5" fill="#CBD5E1"/>
-          <line x1="1084" y1="453" x2="1114" y2="453" stroke="#CBD5E1" stroke-width="1.3"/>
-          <text x="1100" y="482" text-anchor="middle" class="lbl">Control Panel</text>
-        </g>
-
-        <!-- ============ sub row : fan & garage ============ -->
-        <!-- circulation fan: the ring head sways, the blades spin inside it -->
-        <g>
-          <!-- stand + base (static): the column runs into the centre of the base -->
-          <ellipse cx="560" cy="566" rx="14" ry="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
-          <line x1="560" y1="546" x2="560" y2="566" stroke="#CBD5E1" stroke-width="1.6"/>
-          <!-- swaying head -->
-          <g class="fan-head">
-            <circle cx="560" cy="536" r="10" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-            <g class="fan-blades" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round">
-              <line x1="560" y1="536" x2="560" y2="529"/>
-              <line x1="560" y1="536" x2="566" y2="541"/>
-              <line x1="560" y1="536" x2="554" y2="541"/>
-            </g>
-            <circle cx="560" cy="536" r="3" fill="#F97316"/>
-          </g>
-          <text x="560" y="578" text-anchor="middle" class="lbl">Fan</text>
-        </g>
-        <!-- garage: flat-roof; the car waits behind the wall and noses out through the door -->
-        <g>
-          <!-- side columns / wall edges -->
-          <path d="M630 522 V560 M684 522 V560" fill="none" stroke="#94A3B8" stroke-width="1.6"/>
-          <!-- header band (simple wall block above the door) -->
-          <rect x="630" y="522" width="54" height="8" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
-          <!-- garage door -->
-          <rect x="638" y="536" width="38" height="24" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
-          <!-- car: hidden behind the wall, appears at the door's left edge, then pulls out -->
-          <g clip-path="url(#garageCarClip)">
-            <g class="eco-car">
-              <path d="M648 547.5 L650.5 543 Q651.5 541.5 653.5 541.5 L660 541.5 Q662.5 541.5 663.8 543.5 L665.5 546.5 L669 547.5 Q671.5 548 671.5 550.5 L671.5 554 Q671.5 555.5 670 555.5 L643 555.5 Q641.5 555.5 641.5 554 L641.5 550 Q641.5 548 643.5 547.6 Z" fill="#F97316"/>
-              <path d="M652 547 L653.5 543.5 Q654 542.7 655 542.7 L659.5 542.7 Q660.8 542.7 661.5 543.9 L662.8 547 Z" fill="#FFEDD5"/>
-              <circle cx="649" cy="557.2" r="2.6" fill="#475569"/>
-              <circle cx="664" cy="557.2" r="2.6" fill="#475569"/>
-            </g>
-          </g>
-          <!-- ground line, flush with the columns -->
-          <path d="M630 560 H684" fill="none" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
-          <text x="657" y="578" text-anchor="middle" class="lbl">Garage</text>
+          <rect x="1036" y="423" width="48" height="38" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <rect x="1044" y="430" width="22" height="16" rx="2" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <circle cx="1076" cy="436" r="2.5" fill="#F97316"/>
+          <circle cx="1076" cy="444" r="2.5" fill="#CBD5E1"/>
+          <line x1="1044" y1="453" x2="1074" y2="453" stroke="#CBD5E1" stroke-width="1.3"/>
+          <text x="1060" y="482" text-anchor="middle" class="lbl">Control Panel</text>
         </g>
 
         <defs>
@@ -506,7 +504,7 @@
             <stop offset="1" stop-color="#F97316"/>
           </linearGradient>
           <clipPath id="garageCarClip">
-            <rect x="638" y="515" width="177" height="50"/>
+            <rect x="650" y="438" width="90" height="28"/>
           </clipPath>
         </defs>
       </svg>
@@ -821,7 +819,7 @@
 
   /* smoke alarm: expanding detection ping + blinking status led */
   .smoke-pulse {
-    transform-origin: 800px 443px;
+    transform-origin: 820px 443px;
     animation: eco-smoke 2.4s ease-out infinite;
   }
   @keyframes eco-smoke {
@@ -864,7 +862,7 @@
 
   /* curtain motor: the drive ring slowly turns */
   .curtain-drive {
-    transform-origin: 1000px 441px;
+    transform-origin: 980px 441px;
     animation: eco-spin 4.5s linear infinite;
   }
 
@@ -883,11 +881,11 @@
     }
   }
   .lock-fp-ring {
-    transform-origin: 506.5px 448px;
+    transform-origin: 426.5px 448px;
     animation: eco-smoke 2.2s ease-out infinite;
   }
   .lock-handle {
-    transform-origin: 506.5px 448px;
+    transform-origin: 426.5px 448px;
     animation: lock-turn 4.4s ease-in-out infinite;
   }
   @keyframes lock-turn {
@@ -907,7 +905,7 @@
 
   /* rf remote: the centre button presses as the signal wave goes out */
   .rf-btn {
-    transform-origin: 700px 455.5px;
+    transform-origin: 740px 455.5px;
     animation: rf-press 2.6s linear infinite;
   }
   @keyframes rf-press {
@@ -927,7 +925,7 @@
   /* ptz camera: the head stays put, the face turns left / right inside it —
      narrowest at the extremes, full width when facing front */
   .cam-lens {
-    transform-origin: 600px 435px;
+    transform-origin: 500px 435px;
     animation: cam-pan 4s ease-in-out infinite;
   }
   @keyframes cam-pan {
@@ -964,7 +962,7 @@
 
   /* circulation fan: the ring head sways left/right, the blades spin inside it */
   .fan-head {
-    transform-origin: 560px 550px;
+    transform-origin: 580px 447px;
     animation: eco-fan-sway 3.4s ease-in-out infinite;
   }
   @keyframes eco-fan-sway {
@@ -979,7 +977,7 @@
 
   /* fan blades spin around the hub */
   .fan-blades {
-    transform-origin: 560px 536px;
+    transform-origin: 580px 436px;
     animation: eco-spin 1.4s linear infinite;
   }
   @keyframes eco-spin {
@@ -997,11 +995,11 @@
     0%,
     12%,
     100% {
-      transform: translateX(-34px);
+      transform: translateX(-22px);
     }
     46%,
     80% {
-      transform: translateX(-9.5px);
+      transform: translateX(-7px);
     }
   }
 
@@ -1108,7 +1106,7 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(-9.5px);
+      transform: translateX(-7px);
     }
     .eco-vac {
       transform: translateX(-34px);
