@@ -277,11 +277,15 @@
         </g>
         <!-- 4 curtain motor -->
         <g class="float" style="animation-delay:1.3s">
-          <rect x="380" y="427" width="40" height="22" rx="4" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <line x1="391" y1="427" x2="391" y2="449" stroke="#CBD5E1" stroke-width="1.2"/>
-          <line x1="400" y1="427" x2="400" y2="449" stroke="#CBD5E1" stroke-width="1.2"/>
-          <line x1="409" y1="427" x2="409" y2="449" stroke="#CBD5E1" stroke-width="1.2"/>
-          <line x1="380" y1="457" x2="420" y2="457" stroke="#E2E8F0" stroke-width="1.4"/>
+          <!-- capsule body -->
+          <rect x="383" y="430" width="34" height="34" rx="11" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <!-- rotating drive ring with a green clutch -->
+          <g class="curtain-drive">
+            <circle cx="400" cy="441" r="10" fill="none" stroke="#CBD5E1" stroke-width="1.4"/>
+            <circle cx="400" cy="441" r="6" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="400" y1="434.5" x2="400" y2="437" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="400" cy="441" r="2.2" fill="#22C55E"/>
+          </g>
           <text x="400" y="482" text-anchor="middle" class="lbl">Curtain Motor</text>
         </g>
         <!-- 5 smart door lock -->
@@ -316,8 +320,15 @@
         </g>
         <!-- 8 smoke alarm -->
         <g class="float" style="animation-delay:.8s">
+          <!-- pulsing detection ring -->
+          <circle class="smoke-pulse" cx="800" cy="443" r="16" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <!-- body -->
           <circle cx="800" cy="443" r="16" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <circle cx="800" cy="443" r="7" fill="none" stroke="#F97316" stroke-width="1.3" stroke-dasharray="3 3"/>
+          <!-- perforation ring -->
+          <circle cx="800" cy="443" r="12" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="2 2.4"/>
+          <!-- centre button + led -->
+          <circle cx="800" cy="443" r="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.3"/>
+          <circle class="smoke-led" cx="800" cy="443" r="2" fill="#F97316"/>
           <text x="800" y="482" text-anchor="middle" class="lbl">Smoke Alarm</text>
         </g>
         <!-- 9 motion sensor -->
@@ -571,6 +582,32 @@
     }
   }
 
+  /* smoke alarm: expanding detection ping + blinking status led */
+  .smoke-pulse {
+    transform-origin: 800px 443px;
+    animation: eco-smoke 2.4s ease-out infinite;
+  }
+  @keyframes eco-smoke {
+    0% {
+      transform: scale(0.72);
+      opacity: 0.85;
+    }
+    70%,
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+  .smoke-led {
+    animation: eco-blink 1.6s ease-in-out infinite;
+  }
+
+  /* curtain motor: the drive ring slowly turns */
+  .curtain-drive {
+    transform-origin: 400px 441px;
+    animation: eco-spin 4.5s linear infinite;
+  }
+
   /* circulation fan: the ring head sways left/right, the blades spin inside it */
   .fan-head {
     transform-origin: 560px 550px;
@@ -697,6 +734,9 @@
     .eco-car,
     .led,
     .tstat-led,
+    .smoke-pulse,
+    .smoke-led,
+    .curtain-drive,
     .wifi-dot,
     .wifi-a1,
     .wifi-a2,
