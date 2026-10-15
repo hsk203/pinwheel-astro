@@ -1041,55 +1041,55 @@
     }
   }
 
-  /* garage: one shared 12s loop —
-       1.4-3.1s  shutter rolls up, disappears into the lintel
-       3.1-5.4s  car drives out and is swallowed by the wall
-       5.4-6.9s  shutter closes again while the car is away
-       6.9-7.9s  shutter opens a second time
-       7.9-10.0s car backs out of the wall into the garage
-      10.0-11.4s shutter closes, car parked inside */
+  /* garage: one shared 14s loop —
+       1.7-4.0s  shutter rolls up slowly into the lintel
+       4.0-6.6s  car drives out and is swallowed by the wall
+       6.6-8.6s  shutter closes again while the car is away
+       8.6-10.6s shutter opens a second time
+      10.6-12.4s car backs out of the wall into the garage
+      12.4-14.0s shutter closes, car parked inside */
   .garage-door {
     transform: translateY(0);
-    animation: garage-door 12s ease-in-out infinite;
+    animation: garage-door 14s ease-in-out infinite;
   }
   @keyframes garage-door {
     0%,
     12% {
       transform: translateY(0);
     }
-    26%,
-    45% {
-      transform: translateY(-70px);
+    28%,
+    47% {
+      transform: translateY(-20px);
     }
-    57%,
-    66% {
+    61%,
+    68% {
       transform: translateY(0);
     }
-    72%,
-    83% {
-      transform: translateY(-70px);
+    76%,
+    86% {
+      transform: translateY(-20px);
     }
-    95%,
+    98%,
     100% {
       transform: translateY(0);
     }
   }
   .eco-car {
     transform: translateX(0);
-    animation: eco-car 12s ease-in-out infinite;
+    animation: eco-car 14s ease-in-out infinite;
   }
   @keyframes eco-car {
     0%,
-    26% {
+    28% {
       transform: translateX(0);
     }
-    45% {
+    47% {
       transform: translateX(-66px);
     }
-    66% {
+    68% {
       transform: translateX(-66px);
     }
-    83% {
+    86% {
       transform: translateX(0);
     }
     100% {
@@ -1206,7 +1206,7 @@
       transform: translateX(-66px);
     }
     .garage-door {
-      transform: translateY(-70px);
+      transform: translateY(-20px);
     }
     .eco-vac {
       transform: translateX(-38px);
