@@ -48,7 +48,7 @@
           <!-- device bus (ends flush with the first / last stub) -->
           <path class="flow" d="M100 411 H1100"/>
           <!-- bus -> fan branch -->
-          <path class="flow" d="M655 411 V530"/>
+          <path class="flow" d="M655 411 V522"/>
           <path class="flow" d="M560 507 H655"/>
           <path class="flow" d="M560 507 V519"/>
           <!-- device stubs -->
@@ -158,6 +158,15 @@
           <circle class="led" cx="583" cy="132" r="2.4" fill="#FBBF24" style="animation-delay:.25s"/>
           <circle class="led" cx="594" cy="132" r="2.4" fill="#22C55E" style="animation-delay:.5s"/>
           <text x="600" y="160" text-anchor="middle" class="lbl halo">Router</text>
+        </g>
+
+        <!-- ============ controller cabinet ============ -->
+        <g class="float" style="animation-delay:.45s">
+          <rect x="652" y="112" width="44" height="32" rx="5" fill="#fff" stroke="#94A3B8" stroke-width="1.8"/>
+          <line x1="674" y1="118" x2="674" y2="138" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+          <circle class="led" cx="662" cy="128" r="2.2" fill="#F97316" style="animation-delay:0s"/>
+          <circle class="led" cx="672" cy="128" r="2.2" fill="#22C55E" style="animation-delay:.3s"/>
+          <text x="674" y="160" text-anchor="middle" class="lbl halo">Server</text>
         </g>
 
         <!-- wi-fi chips on the branch bus -->
@@ -471,12 +480,15 @@
           </g>
           <text x="560" y="578" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- garage: slatted door in the middle; the car waits behind the wall and pulls out through the door -->
+        <!-- garage: flat-roof; the car waits behind the wall and noses out through the door -->
         <g>
-          <!-- side columns -->
-          <path d="M630 528 V560 M684 528 V560" fill="none" stroke="#94A3B8" stroke-width="1.6"/>
+          <!-- side columns / wall edges -->
+          <path d="M630 522 V560 M684 522 V560" fill="none" stroke="#94A3B8" stroke-width="1.6"/>
+          <!-- header band (wall block above the door) -->
+          <rect x="630" y="522" width="54" height="12" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
+          <path d="M632 526 H682 M632 530 H682" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
           <!-- garage door -->
-          <rect x="638" y="530" width="38" height="30" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
+          <rect x="638" y="536" width="38" height="24" fill="#fff" stroke="#94A3B8" stroke-width="1.4"/>
           <!-- car: hidden behind the wall, appears at the door's left edge, then pulls out -->
           <g clip-path="url(#garageCarClip)">
             <g class="eco-car">
