@@ -137,6 +137,10 @@
           <rect x="1024" y="18" width="32" height="56" rx="7" fill="#fff" stroke="#94A3B8" stroke-width="1.8"/>
           <!-- screen -->
           <rect x="1027.5" y="24.5" width="25" height="43" rx="3.5" fill="#CBD5E1"/>
+          <!-- fingerprint reader: pulsing ring + static core, blinking in place -->
+          <circle class="fp-ring" cx="1040" cy="46" r="6.5" fill="none" stroke="#F97316" stroke-width="1.2"/>
+          <circle class="fp-core" cx="1040" cy="46" r="4.2" fill="none" stroke="#F97316" stroke-width="1" opacity=".85"/>
+          <circle cx="1040" cy="46" r="1.6" fill="#F97316"/>
           <!-- notch: speaker slit + front camera -->
           <path d="M1034.5 24.5 V25.8 Q1034.5 28 1036.7 28 H1043.3 Q1045.5 28 1045.5 25.8 V24.5 Z" fill="#fff"/>
           <line x1="1037.4" y1="26.3" x2="1040.6" y2="26.3" stroke="#94A3B8" stroke-width="1" stroke-linecap="round"/>
@@ -415,16 +419,16 @@
           </g>
           <text x="660" y="482" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- 9 garage: just the shell at first. then a door frame — one lintel rail on
-             top and two side posts — rises out of the floor as one piece, locks into
-             the bay, and only then does the car drive out to the left. loops. -->
+        <!-- 9 garage: the door frame (one lintel rail + two side posts) is pre-built and
+             seated in the bay. it slowly slides straight up out of the way — the car then
+             drives out to the left — and the frame comes back down before looping. -->
         <g class="float" style="animation-delay:1.9s">
           <!-- garage shell: rear wall + roof, the bay itself stays open -->
           <rect x="720" y="436" width="40" height="28" rx="3.5" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
           <!-- roof band across the top -->
           <rect x="720" y="436" width="40" height="6" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
-          <!-- car sits UNDER the rising door: while the door is still down/rising the
-               car is hidden behind it, and only drives out once the frame is complete -->
+          <!-- car sits UNDER the door: while the frame is still down the car is hidden
+               behind it, and only drives out once the frame has fully risen -->
           <g clip-path="url(#garageCarClip)">
             <g class="eco-car">
               <path d="M736.4 456.6 L738.3 453.5 Q739 452.3 740.5 452.3 L745.4 452.3 Q747.3 452.3 748.2 453.8 L749.5 456.1 L752.1 456.9 Q754.1 457.3 754.1 459.1 L754.1 461.8 Q754.1 463 753 463 L731.5 463 Q730.3 463 730.3 461.8 L730.3 458.5 Q730.3 457 731.9 456.6 Z" fill="#F97316"/>
@@ -436,9 +440,9 @@
           <!-- static bay interior: a white panel that reads as the empty inside of the
                garage; it hides the car whenever the car is inside the bay -->
           <rect x="728" y="446" width="24" height="18" fill="#fff"/>
-          <!-- the door: at rest there is nothing in the bay. the door is a frame —
-               one lintel rail up top and two side posts — that rises out of the floor
-               as a single piece and seats into the opening. -->
+          <!-- the door frame: lintel rail + two posts, drawn in the bay then slid up.
+               the clip keeps the frame inside the bay, so once it rises past the top
+               it disappears into the roof band instead of poking through the walls -->
           <g clip-path="url(#garageDoorClip)">
             <g class="garage-door">
               <!-- lintel rail: the horizontal bar at the top of the frame -->
@@ -526,7 +530,7 @@
             <stop offset="1" stop-color="#F97316"/>
           </linearGradient>
           <clipPath id="garageCarClip">
-            <rect x="690" y="433" width="62" height="33"/>
+            <rect x="690" y="433" width="62" height="31"/>
           </clipPath>
           <clipPath id="garageDoorClip">
             <rect x="728" y="446" width="24" height="18"/>
@@ -885,6 +889,15 @@
     }
   }
 
+  /* mobile fingerprint reader: ring expands outwards while the inner ring blinks */
+  .fp-ring {
+    transform-origin: 1040px 46px;
+    animation: eco-smoke 2.4s ease-out infinite;
+  }
+  .fp-core {
+    animation: eco-blink 1.6s ease-in-out infinite;
+  }
+
   /* curtain motor: the drive ring slowly turns */
   .curtain-drive {
     transform-origin: 1060px 441px;
@@ -1012,26 +1025,26 @@
   }
 
   /* garage: one shared 8s loop —
-       0.0-1.6s  door frame rises out of the floor and seats into the bay
+       0.0-1.6s  door frame (pre-seated in the bay) slides straight up out of the way
        1.6-3.4s  car drives out of the garage, to the left
        3.4-4.6s  car reverses back in
-       4.6-6.4s  door frame sinks back into the floor
-       6.4-8.0s  hold, then repeat */
+       4.6-6.4s  door frame slides back down into the bay
+       6.4-8.0s  hold closed, then repeat */
   .garage-door {
-    transform: translateY(18px);
+    transform: translateY(0);
     animation: garage-door 8s ease-in-out infinite;
   }
   @keyframes garage-door {
     0% {
-      transform: translateY(18px);
+      transform: translateY(0);
     }
     20%,
     58% {
-      transform: translateY(0);
+      transform: translateY(-19px);
     }
     80%,
     100% {
-      transform: translateY(18px);
+      transform: translateY(0);
     }
   }
   .eco-car {
@@ -1141,6 +1154,8 @@
     .smoke-led,
     .ms-pulse,
     .ms-arc,
+    .fp-ring,
+    .fp-core,
     .curtain-drive,
     .lock-key,
     .lock-fp-ring,
