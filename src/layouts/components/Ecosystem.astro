@@ -258,7 +258,8 @@
           <rect x="80" y="423" width="40" height="40" rx="8" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <rect x="90" y="431" width="20" height="14" rx="3" fill="none" stroke="#F97316" stroke-width="1.5"/>
           <circle cx="100" cy="454" r="3" fill="#F97316"/>
-          <text x="100" y="489" text-anchor="middle" class="lbl">Free posting</text>
+          <text x="100" y="482" text-anchor="middle" class="lbl">Free</text>
+          <text x="100" y="495" text-anchor="middle" class="lbl">posting</text>
         </g>
         <!-- 2 smart switch 1/2/3/4 -->
         <g class="float" style="animation-delay:.5s">
@@ -277,7 +278,8 @@
           <circle cx="276" cy="436" r="2.5" fill="#F97316"/>
           <circle cx="276" cy="444" r="2.5" fill="#CBD5E1"/>
           <line x1="244" y1="453" x2="274" y2="453" stroke="#CBD5E1" stroke-width="1.3"/>
-          <text x="260" y="482" text-anchor="middle" class="lbl">Control Panel</text>
+          <text x="260" y="482" text-anchor="middle" class="lbl">Control</text>
+          <text x="260" y="495" text-anchor="middle" class="lbl">Panel</text>
         </g>
         <!-- 4 thermostat -->
         <g class="float" style="animation-delay:.9s">
@@ -334,7 +336,8 @@
           <!-- charging led + floor plate -->
           <circle class="smoke-led" cx="419.8" cy="439" r="1.5" fill="#F97316"/>
           <line x1="403.6" y1="464.4" x2="436" y2="464.4" stroke="#CBD5E1" stroke-width="1.3" stroke-linecap="round"/>
-          <text x="420" y="482" text-anchor="middle" class="lbl">Robot Vacuum</text>
+          <text x="420" y="482" text-anchor="middle" class="lbl">Robot</text>
+          <text x="420" y="495" text-anchor="middle" class="lbl">Vacuum</text>
         </g>
         <!-- 6 smart door lock: keypad + handle with a fingerprint reader -->
         <g class="float" style="animation-delay:1.7s">
@@ -412,25 +415,40 @@
           </g>
           <text x="660" y="482" text-anchor="middle" class="lbl">Fan</text>
         </g>
-        <!-- 9 garage: flat-roof; the car waits behind the wall and noses out through the door -->
+        <!-- 9 garage: the shutter door rolls up from the floor, then the car drives
+             out to the left and parks again — the whole thing loops -->
         <g class="float" style="animation-delay:1.9s">
-          <!-- body block -->
+          <!-- body block: rear wall + two side walls, leaving the door bay open -->
           <rect x="720" y="436" width="40" height="28" rx="3.5" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
-          <!-- header band (simple wall block above the door) -->
+          <!-- header band across the top of the bay -->
           <rect x="720" y="436" width="40" height="6" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
-          <!-- garage door -->
-          <rect x="728" y="447" width="24" height="17" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
-          <!-- car: hidden behind the wall, appears at the door's left edge, then pulls out -->
+          <!-- lintel shadow: a hairline under the header marks the rolled-up rest position -->
+          <line x1="728" y1="443" x2="752" y2="443" stroke="#E2E8F0" stroke-width="1"/>
+          <!-- the car is drawn UNDER the door: while the shutter is down it is hidden,
+               once the door rolls up it drives out through the bay to the left.
+               its reveal is clipped to the exit zone left of the bay + the bay itself. -->
           <g clip-path="url(#garageCarClip)">
+            <!-- car: waits inside, drives out left, parks, reverses back in -->
             <g class="eco-car">
-              <path d="M736.4 456.6 L738.3 453.5 Q739.0 452.3 740.5 452.3 L745.4 452.3 Q747.3 452.3 748.2 453.8 L749.5 456.1 L752.1 456.9 Q754.1 457.3 754.1 459.1 L754.1 461.8 Q754.1 463 753.0 463 L731.5 463 Q730.3 463 730.3 461.8 L730.3 458.5 Q730.3 457 731.9 456.6 Z" fill="#F97316"/>
+              <path d="M736.4 456.6 L738.3 453.5 Q739 452.3 740.5 452.3 L745.4 452.3 Q747.3 452.3 748.2 453.8 L749.5 456.1 L752.1 456.9 Q754.1 457.3 754.1 459.1 L754.1 461.8 Q754.1 463 753 463 L731.5 463 Q730.3 463 730.3 461.8 L730.3 458.5 Q730.3 457 731.9 456.6 Z" fill="#F97316"/>
               <path d="M739.5 456.6 L740.6 453.8 Q741.1 453.1 741.8 453.1 L745.2 453.1 Q746.3 453.1 746.7 454 L747.8 456.6 Z" fill="#FFEDD5"/>
               <circle cx="737.1" cy="464.4" r="2.2" fill="#475569"/>
               <circle cx="748.4" cy="464.4" r="2.2" fill="#475569"/>
             </g>
           </g>
+          <!-- shutter door: starts fully down (covering the bay) then rolls up;
+               clip sits on an OUTER group so it stays fixed while the door slides -->
+          <g clip-path="url(#garageDoorClip)">
+            <g class="garage-door">
+              <rect x="728" y="447" width="24" height="17" fill="#fff" stroke="#94A3B8" stroke-width="1.3"/>
+              <!-- horizontal slats so it reads as a roller shutter -->
+              <line x1="728" y1="451" x2="752" y2="451" stroke="#E2E8F0" stroke-width="1"/>
+              <line x1="728" y1="455" x2="752" y2="455" stroke="#E2E8F0" stroke-width="1"/>
+              <line x1="728" y1="459" x2="752" y2="459" stroke="#E2E8F0" stroke-width="1"/>
+            </g>
+          </g>
           <!-- ground line, flush with the body -->
-          <path d="M720.0 464 H760.0" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M720 464 H760" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
           <text x="740" y="482" text-anchor="middle" class="lbl">Garage</text>
         </g>
         <!-- 10 RF remote: signal waves pulse out, then the centre button presses -->
@@ -473,7 +491,8 @@
           <!-- centre button + led -->
           <circle cx="900" cy="443" r="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.3"/>
           <circle class="smoke-led" cx="900" cy="443" r="2" fill="#F97316"/>
-          <text x="900" y="482" text-anchor="middle" class="lbl">Smoke Alarm</text>
+          <text x="900" y="482" text-anchor="middle" class="lbl">Smoke</text>
+          <text x="900" y="495" text-anchor="middle" class="lbl">Alarm</text>
         </g>
         <!-- 12 motion sensor: an outward pulse ring plus detection arcs that sweep one after another -->
         <g class="float" style="animation-delay:1.2s">
@@ -482,7 +501,8 @@
           <rect x="970" y="425" width="20" height="34" rx="9" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <path class="ms-arc ms-arc-1" d="M977.0 433 q4 8 0 16" fill="none" stroke="#F97316" stroke-width="1.3" stroke-linecap="round"/>
           <path class="ms-arc ms-arc-2" d="M983.0 431 q6 10 0 20" fill="none" stroke="#F97316" stroke-width="1.3" stroke-linecap="round"/>
-          <text x="980" y="482" text-anchor="middle" class="lbl">Motion Sensor</text>
+          <text x="980" y="482" text-anchor="middle" class="lbl">Motion</text>
+          <text x="980" y="495" text-anchor="middle" class="lbl">Sensor</text>
         </g>
         <!-- 12 curtain motor -->
         <g class="float" style="animation-delay:1.3s">
@@ -495,7 +515,8 @@
             <line x1="1060" y1="434.5" x2="1060" y2="437" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"/>
             <circle cx="1060" cy="441" r="2.2" fill="#22C55E"/>
           </g>
-          <text x="1060" y="482" text-anchor="middle" class="lbl">Curtain Motor</text>
+          <text x="1060" y="482" text-anchor="middle" class="lbl">Curtain</text>
+          <text x="1060" y="495" text-anchor="middle" class="lbl">Motor</text>
         </g>
 
         <defs>
@@ -504,7 +525,10 @@
             <stop offset="1" stop-color="#F97316"/>
           </linearGradient>
           <clipPath id="garageCarClip">
-            <rect x="728" y="433" width="100" height="33"/>
+            <rect x="690" y="433" width="62" height="33"/>
+          </clipPath>
+          <clipPath id="garageDoorClip">
+            <rect x="728" y="446" width="24" height="18"/>
           </clipPath>
         </defs>
       </svg>
@@ -986,20 +1010,45 @@
     }
   }
 
-  /* a car waits behind the garage wall, noses out just past the middle of the
-     door, then backs in behind the wall again */
+  /* garage: one shared 7s loop —
+       0.0-1.2s  door rolls up from the floor and stops at the top
+       1.2-3.0s  car drives out of the bay, to the left
+       3.0-4.2s  car reverses back into the garage
+       4.2-5.4s  door rolls back down to the floor
+       5.4-7.0s  hold closed before repeating */
+  .garage-door {
+    transform: translateY(0);
+    animation: garage-door 7s ease-in-out infinite;
+  }
+  @keyframes garage-door {
+    0% {
+      transform: translateY(0);
+    }
+    17%,
+    77% {
+      transform: translateY(-19px);
+    }
+    94%,
+    100% {
+      transform: translateY(0);
+    }
+  }
   .eco-car {
-    animation: eco-car 4.4s ease-in-out infinite;
+    transform: translateX(0);
+    animation: eco-car 7s ease-in-out infinite;
   }
   @keyframes eco-car {
     0%,
-    12%,
-    100% {
-      transform: translateX(-24px);
+    17%,
+    43% {
+      transform: translateX(0);
     }
-    46%,
-    80% {
-      transform: translateX(-4px);
+    60% {
+      transform: translateX(-42px);
+    }
+    77%,
+    100% {
+      transform: translateX(0);
     }
   }
 
@@ -1083,6 +1132,7 @@
     .fan-blades,
     .fan-head,
     .eco-car,
+    .garage-door,
     .led,
     .tstat-led,
     .tstat-temp,
@@ -1106,7 +1156,10 @@
       animation: none;
     }
     .eco-car {
-      transform: translateX(-4px);
+      transform: translateX(-42px);
+    }
+    .garage-door {
+      transform: translateY(-19px);
     }
     .eco-vac {
       transform: translateX(-38px);
