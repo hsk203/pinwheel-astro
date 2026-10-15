@@ -11,7 +11,7 @@
 
   <div class="container eco-wide">
     <div class="eco-figure">
-      <svg viewBox="45 11 1120 576" role="img" aria-label="Smart home communication diagram: cloud, router and mobile phone outside the home; Wi-Fi branches to voice assistants and the Tuya platform gateways (Zigbee / BLE-mesh); Matter over Wi-Fi and Thread; a device bus connects free posting switch, smart switches 1-4, thermostat, curtain motor, smart door lock, RF remote, camera, smoke alarm, motion sensor, door contact, control panel, plus fan, and a garage with a car pulling out.">
+      <svg viewBox="45 11 1120 576" role="img" aria-label="Smart home communication diagram: cloud, router and mobile phone outside the home; Wi-Fi branches to voice assistants and the Tuya platform gateways (Zigbee / BLE-mesh); Matter over Wi-Fi and Thread; a device bus connects free posting switch, smart switches 1-4, thermostat, curtain motor, smart door lock, RF remote, camera, smoke alarm, motion sensor, robot vacuum, control panel, plus fan, and a garage with a car pulling out.">
         <!-- decorations -->
         <g>
           <circle cx="330" cy="118" r="3" fill="#F97316" opacity=".45"/>
@@ -392,12 +392,18 @@
           <path d="M903 431 q6 10 0 20" fill="none" stroke="#F97316" stroke-width="1.3" stroke-linecap="round"/>
           <text x="900" y="482" text-anchor="middle" class="lbl">Motion Sensor</text>
         </g>
-        <!-- 10 door contact -->
+        <!-- 10 robot vacuum: the robot slides out of its base dock and returns -->
         <g class="float" style="animation-delay:1.6s">
-          <rect x="984" y="427" width="12" height="32" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <rect x="1002" y="427" width="16" height="32" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <circle cx="1010" cy="443" r="2.5" fill="#F97316"/>
-          <text x="1000" y="482" text-anchor="middle" class="lbl">Door Contact</text>
+          <!-- robot (behind the dock, slides out to the left) -->
+          <g class="eco-vac">
+            <rect x="996.5" y="452" width="7" height="2.6" rx="1.3" fill="#fff" stroke="#CBD5E1" stroke-width="1.1"/>
+            <rect x="993" y="454.6" width="14" height="8" rx="4" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
+            <circle cx="995.9" cy="458.6" r="1.1" fill="#F97316"/>
+          </g>
+          <!-- base dock (drawn on top so the robot emerges from inside) -->
+          <rect x="992" y="424" width="16" height="39" rx="3" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+          <circle class="smoke-led" cx="1000" cy="430" r="1.2" fill="#F97316"/>
+          <text x="1000" y="482" text-anchor="middle" class="lbl">Robot Vacuum</text>
         </g>
         <!-- 11 control panel -->
         <g class="float" style="animation-delay:2s">
@@ -753,6 +759,24 @@
     }
   }
 
+  /* robot vacuum: slides out of the dock, works, docks back in */
+  .eco-vac {
+    animation: eco-vac 4.6s ease-in-out infinite;
+  }
+  @keyframes eco-vac {
+    0%,
+    18% {
+      transform: translateX(0);
+    }
+    52%,
+    82% {
+      transform: translateX(-26px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   /* circulation fan: the ring head sways left/right, the blades spin inside it */
   .fan-head {
     transform-origin: 560px 550px;
@@ -888,6 +912,7 @@
     .lock-handle,
     .rf-btn,
     .cam-lens,
+    .eco-vac,
     .wifi-dot,
     .wifi-a1,
     .wifi-a2,
@@ -896,6 +921,9 @@
     }
     .eco-car {
       transform: translateX(50px);
+    }
+    .eco-vac {
+      transform: translateX(-26px);
     }
     .tstat-led {
       opacity: 0.7;
