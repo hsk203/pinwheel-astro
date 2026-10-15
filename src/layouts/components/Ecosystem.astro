@@ -503,7 +503,7 @@
 
 <style>
   .eco {
-    background: #f8fafc;
+    background: transparent;
   }
 
   /* heading: same family / size / orange gradient as the hero headline */
@@ -607,7 +607,7 @@
   /* text knocked out over dashed lines */
   .halo {
     paint-order: stroke;
-    stroke: #f8fafc;
+    stroke: #fafafa;
     stroke-width: 9px;
     stroke-linejoin: round;
   }
@@ -640,6 +640,26 @@
 
   .pkt {
     offset-rotate: 0deg;
+  }
+
+  /* traveling packets blink while they move, staggered in three groups */
+  .pkt {
+    animation: pkt-pulse 1.4s ease-in-out infinite;
+  }
+  .pkts circle:nth-of-type(3n + 2) {
+    animation-delay: 0.45s;
+  }
+  .pkts circle:nth-of-type(3n) {
+    animation-delay: 0.9s;
+  }
+  @keyframes pkt-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.15;
+    }
   }
 
   /* router LEDs fade out to nothing, then fade back in, in sequence */
