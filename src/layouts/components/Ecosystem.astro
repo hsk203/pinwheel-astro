@@ -382,6 +382,8 @@
           <!-- ptz camera: ball head nested into a wide squat puck base
                (drawn first so the ball sits into it) -->
           <path d="M565.5 464 V461 Q566 450 580 450 Q594 450 594.5 461 V464 Z" fill="#fff" stroke="#CBD5E1" stroke-width="1.4"/>
+          <!-- status strip on the base: blinks like the other leds -->
+          <line class="cam-strip" x1="573" y1="458.5" x2="587" y2="458.5" stroke="#F97316" stroke-width="2.2" stroke-linecap="round"/>
           <circle cx="580" cy="437" r="12.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
           <g class="cam-lens">
             <!-- lens + status led, swinging inside the ball -->
@@ -974,6 +976,10 @@
     transform-origin: 580px 437px;
     animation: cam-pan 4s ease-in-out infinite;
   }
+  /* status strip on the base: slow breathing blink */
+  .cam-strip {
+    animation: eco-blink 2s ease-in-out infinite;
+  }
   @keyframes cam-pan {
     0%,
     100% {
@@ -1184,6 +1190,7 @@
     .lock-handle,
     .rf-btn,
     .cam-lens,
+    .cam-strip,
     .eco-vac,
     .wifi-dot,
     .wifi-a1,
