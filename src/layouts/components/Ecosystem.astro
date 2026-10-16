@@ -494,19 +494,25 @@
           <text x="900" y="482" text-anchor="middle" class="lbl">Smoke</text>
           <text x="900" y="495" text-anchor="middle" class="lbl">Alarm</text>
         </g>
-        <!-- 12 motion sensor: a solid walking-person pictogram mid-stride, with an
-             outward pulse ring announcing the motion -->
+        <!-- 12 motion sensor: a static solid walking-person pictogram with a
+             human-shaped orange pulse expanding outwards behind it -->
         <g class="float" style="animation-delay:1.2s">
-          <!-- outward pulse ring, mirroring the smoke alarm — sized to hug the figure -->
-          <circle class="ms-pulse" cx="980" cy="441" r="14" fill="none" stroke="#F97316" stroke-width="1.4"/>
-          <g class="ms-walk">
+          <!-- the pulse: the same silhouette as a fat orange outline, growing
+               and fading so a human-shaped ring expands outwards -->
+          <g class="ms-ghost" aria-hidden="true">
+            <circle cx="981.5" cy="427.5" r="3.8" fill="none" stroke="#F97316" stroke-width="1.4"/>
+            <line x1="981" y1="432.5" x2="977.5" y2="447" stroke="#F97316" stroke-width="8.5" stroke-linecap="round"/>
+            <line x1="980.8" y1="435" x2="986.5" y2="442.5" stroke="#F97316" stroke-width="5.2" stroke-linecap="round"/>
+            <line x1="980.5" y1="435.5" x2="974.5" y2="443" stroke="#F97316" stroke-width="5.2" stroke-linecap="round"/>
+            <line x1="977.5" y1="446.5" x2="985" y2="462" stroke="#F97316" stroke-width="5.4" stroke-linecap="round"/>
+            <line x1="977.5" y1="446.5" x2="970.5" y2="461.5" stroke="#F97316" stroke-width="5.4" stroke-linecap="round"/>
+          </g>
+          <!-- the person itself, still -->
+          <g class="ms-person">
             <circle cx="981.5" cy="427.5" r="3.8" fill="#CBD5E1"/>
-            <!-- torso, leaning into the stride -->
             <line x1="981" y1="432.5" x2="977.5" y2="447" stroke="#CBD5E1" stroke-width="6" stroke-linecap="round"/>
-            <!-- arms: one forward, one back -->
             <line x1="980.8" y1="435" x2="986.5" y2="442.5" stroke="#CBD5E1" stroke-width="2.8" stroke-linecap="round"/>
             <line x1="980.5" y1="435.5" x2="974.5" y2="443" stroke="#CBD5E1" stroke-width="2.8" stroke-linecap="round"/>
-            <!-- legs: wide stride -->
             <line x1="977.5" y1="446.5" x2="985" y2="462" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
             <line x1="977.5" y1="446.5" x2="970.5" y2="461.5" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
           </g>
@@ -874,22 +880,21 @@
     animation: eco-blink 1.6s ease-in-out infinite;
   }
 
-  /* motion sensor: solid walking pictogram — the whole figure bobs and rocks
-     gently on its stride, silhouette stays intact */
-  .ms-pulse {
-    transform-origin: 980px 441px;
-    animation: eco-smoke 2.4s ease-out infinite;
+  /* motion sensor: the person is still — only the human-shaped ghost behind it
+     grows outwards and fades, like the smoke alarm's ring but in human form */
+  .ms-ghost {
+    transform-origin: 980px 443px;
+    animation: ms-ghost 2.4s ease-out infinite;
   }
-  .ms-walk {
-    transform-origin: 978px 462px;
-    animation: ms-walk 1.2s ease-in-out infinite alternate;
-  }
-  @keyframes ms-walk {
-    from {
-      transform: translateY(0) rotate(-1.6deg);
+  @keyframes ms-ghost {
+    0% {
+      transform: scale(1);
+      opacity: 0.85;
     }
-    to {
-      transform: translateY(-0.8px) rotate(1.6deg);
+    70%,
+    100% {
+      transform: scale(1.32);
+      opacity: 0;
     }
   }
 
@@ -1185,8 +1190,7 @@
     .tstat-temp,
     .smoke-pulse,
     .smoke-led,
-    .ms-pulse,
-    .ms-walk,
+    .ms-ghost,
     .fp-ring,
     .fp-core,
     .curtain-drive,
