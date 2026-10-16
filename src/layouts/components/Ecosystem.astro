@@ -509,16 +509,34 @@
           <text x="980" y="482" text-anchor="middle" class="lbl">Motion</text>
           <text x="980" y="495" text-anchor="middle" class="lbl">Sensor</text>
         </g>
-        <!-- 12 curtain motor -->
+        <!-- 13 curtain motor: a window whose two panels part and meet again,
+             driven by a tiny wheel spinning on the spot on the top rail -->
         <g class="float" style="animation-delay:1.3s">
-          <!-- capsule body -->
-          <rect x="1043" y="430" width="34" height="34" rx="11" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-          <!-- rotating drive ring with a green clutch -->
+          <!-- window frame: drawn open at the bottom, so no sill line -->
+          <path d="M1044 460 V431 Q1044 428 1047 428 H1073 Q1076 428 1076 431 V460"
+                fill="#fff" stroke="#CBD5E1" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- glass -->
+          <rect x="1046.5" y="430.5" width="27" height="29" rx="2" fill="#F1F5F9"/>
+          <!-- left panel: wavy bottom edge, folds running top to bottom -->
+          <g class="curtain-l">
+            <path class="curtain-panel" d="M1046.5 431 H1060 V459.5 q-1.7 -2 -3.4 0 t-3.4 0 t-3.4 0 t-3.4 0 V431 Z"/>
+            <line class="curtain-fold" x1="1050" y1="432" x2="1050" y2="457"/>
+            <line class="curtain-fold" x1="1053.5" y1="432" x2="1053.5" y2="457"/>
+            <line class="curtain-fold" x1="1057" y1="432" x2="1057" y2="457"/>
+          </g>
+          <!-- right panel: mirror of the left -->
+          <g class="curtain-r">
+            <path class="curtain-panel" d="M1060 431 H1073.5 V459.5 q-1.7 -2 -3.4 0 t-3.4 0 t-3.4 0 t-3.4 0 V431 Z"/>
+            <line class="curtain-fold" x1="1063" y1="432" x2="1063" y2="457"/>
+            <line class="curtain-fold" x1="1066.5" y1="432" x2="1066.5" y2="457"/>
+            <line class="curtain-fold" x1="1070" y1="432" x2="1070" y2="457"/>
+          </g>
+          <!-- drive wheel: spins in place on the top rail -->
           <g class="curtain-drive">
-            <circle cx="1060" cy="441" r="10" fill="none" stroke="#CBD5E1" stroke-width="1.4"/>
-            <circle cx="1060" cy="441" r="6" fill="none" stroke="#CBD5E1" stroke-width="1"/>
-            <line x1="1060" y1="434.5" x2="1060" y2="437" stroke="#94A3B8" stroke-width="1.2" stroke-linecap="round"/>
-            <circle cx="1060" cy="441" r="2.2" fill="#22C55E"/>
+            <circle cx="1060" cy="429.5" r="2.6" fill="#fff" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="1060" y1="426.9" x2="1060" y2="432.1" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="1057.4" y1="429.5" x2="1062.6" y2="429.5" stroke="#CBD5E1" stroke-width="1"/>
+            <circle cx="1060" cy="429.5" r="0.7" fill="#F97316"/>
           </g>
           <text x="1060" y="482" text-anchor="middle" class="lbl">Curtain</text>
           <text x="1060" y="495" text-anchor="middle" class="lbl">Motor</text>
@@ -912,10 +930,61 @@
     animation: eco-blink 1.6s ease-in-out infinite;
   }
 
-  /* curtain motor: the drive ring slowly turns */
+  /* curtain motor: the two panels part and meet again (narrowing as they
+     draw back, like fabric gathering), while the little drive wheel turns
+     on the spot on the top rail */
+  .curtain-panel {
+    fill: #ffedd5;
+    stroke: #f97316;
+    stroke-width: 1.2;
+  }
+
+  .curtain-fold {
+    stroke: #fdba74;
+    stroke-width: 0.9;
+  }
+
+  .curtain-l {
+    transform-origin: 1046.5px 445px;
+    animation: curtain-open-l 7s ease-in-out infinite;
+  }
+
+  .curtain-r {
+    transform-origin: 1073.5px 445px;
+    animation: curtain-open-r 7s ease-in-out infinite;
+  }
+
+  @keyframes curtain-open-l {
+    0%,
+    12% {
+      transform: scaleX(1);
+    }
+    40%,
+    68% {
+      transform: scaleX(0.52);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes curtain-open-r {
+    0%,
+    12% {
+      transform: scaleX(1);
+    }
+    40%,
+    68% {
+      transform: scaleX(0.52);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
   .curtain-drive {
-    transform-origin: 1060px 441px;
-    animation: eco-spin 4.5s linear infinite;
+    transform-origin: 1060px 429.5px;
+    animation: eco-spin 2.8s linear infinite;
   }
 
   /* smart door lock: keypad wave, fingerprint scan, handle release */
@@ -1187,6 +1256,8 @@
     .ms-ghost,
     .fp-ring,
     .fp-core,
+    .curtain-l,
+    .curtain-r,
     .curtain-drive,
     .lock-key,
     .lock-fp-ring,
