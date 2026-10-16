@@ -497,8 +497,8 @@
         <!-- 12 motion sensor: a solid walking-person pictogram mid-stride, with an
              outward pulse ring announcing the motion -->
         <g class="float" style="animation-delay:1.2s">
-          <!-- outward pulse ring, mirroring the smoke alarm -->
-          <circle class="ms-pulse" cx="980" cy="442" r="12" fill="none" stroke="#F97316" stroke-width="1.4"/>
+          <!-- outward pulse ring, mirroring the smoke alarm — sized to hug the figure -->
+          <circle class="ms-pulse" cx="980" cy="441" r="14" fill="none" stroke="#F97316" stroke-width="1.4"/>
           <g class="ms-walk">
             <circle cx="981.5" cy="427.5" r="3.8" fill="#CBD5E1"/>
             <!-- torso, leaning into the stride -->
@@ -877,7 +877,7 @@
   /* motion sensor: solid walking pictogram — the whole figure bobs and rocks
      gently on its stride, silhouette stays intact */
   .ms-pulse {
-    transform-origin: 980px 442px;
+    transform-origin: 980px 441px;
     animation: eco-smoke 2.4s ease-out infinite;
   }
   .ms-walk {
@@ -886,10 +886,10 @@
   }
   @keyframes ms-walk {
     from {
-      transform: translateY(0) rotate(-2.5deg);
+      transform: translateY(0) rotate(-1.6deg);
     }
     to {
-      transform: translateY(-1px) rotate(2.5deg);
+      transform: translateY(-0.8px) rotate(1.6deg);
     }
   }
 
