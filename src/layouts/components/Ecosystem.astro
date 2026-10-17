@@ -319,27 +319,26 @@
           <circle class="tstat-led" cx="349" cy="455" r="1.8" fill="#F97316" style="animation-delay:.7s"/>
           <text x="340" y="482" text-anchor="middle" class="lbl">Thermostat</text>
         </g>
-        <!-- 5 robot vacuum: vertical dock with bottom-left opening; horizontal capsule partly inserted -->
+        <!-- 5 robot vacuum: the robot slides out of its base dock and returns -->
         <g class="float" style="animation-delay:1.6s">
-          <!-- robot body: horizontal capsule, partly inside the dock opening -->
+          <!-- robot: LDS turret, wheel, body, bumper line, front sensor -->
           <g class="eco-vac">
-            <rect x="402" y="452" width="29" height="12" rx="6" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
-            <line x1="416" y1="453" x2="416" y2="463" stroke="#CBD5E1" stroke-width="1"/>
-            <circle cx="418" cy="458" r="1.6" fill="#F97316"/>
-            <circle cx="410" cy="463" r="2" fill="#475569"/>
+            <rect x="415.2" y="449.5" width="7.4" height="3" rx="1.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.15"/>
+            <circle cx="411.8" cy="461.7" r="1.9" fill="#475569"/>
+            <rect x="407" y="452.4" width="26.4" height="10.2" rx="5.1" fill="#fff" stroke="#CBD5E1" stroke-width="1.6"/>
+            <line x1="426.7" y1="453.3" x2="426.7" y2="461.6" stroke="#CBD5E1" stroke-width="1"/>
+            <circle cx="429.4" cy="455.6" r="1.4" fill="#F97316"/>
           </g>
-          <!-- dock: tall vertical box with a bottom-left rectangular opening; drawn over the robot's rear half -->
-          <path d="M412 432 h18 a4 4 0 0 1 4 4 v24 a4 4 0 0 1 -4 4 h-18 a4 4 0 0 1 -4 -4 v-24 a4 4 0 0 1 4 -4 z
-                   M408 452 h13 v11 h-13 z"
-                fill="#fff" stroke="#CBD5E1" stroke-width="1.7" fill-rule="evenodd"/>
-          <!-- charging LED on the dock -->
-          <circle class="smoke-led" cx="421" cy="440" r="1.5" fill="#F97316"/>
-          <!-- floor plate under the dock -->
-          <line x1="404" y1="465" x2="438" y2="465" stroke="#CBD5E1" stroke-width="1.3" stroke-linecap="round"/>
-          <!-- LDS turret: drawn on top of the dock so it stays visible; moves with the robot -->
-          <g class="eco-vac">
-            <rect x="413" y="427" width="7" height="5" rx="1.5" fill="#fff" stroke="#CBD5E1" stroke-width="1.15"/>
-          </g>
+          <!-- base dock: short unit, drawn on top so the robot emerges from the left-side notch -->
+          <path d="M409.8 433.6 h20 a5 5 0 0 1 5 5 v21.2 a5 5 0 0 1 -5 5 h-20 a5 5 0 0 1 -5 -5 v-21.2 a5 5 0 0 1 5 -5 z
+                   M413.8 462 L404.8 462 L404.8 448 L413.8 448 Z" fill="#fff" stroke="#CBD5E1" stroke-width="1.7" fill-rule="evenodd"/>
+          <!-- panel seam + side vents -->
+          <line x1="407.8" y1="443.4" x2="431.8" y2="443.4" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="410.2" y1="447.4" x2="419.6" y2="447.4" stroke="#CBD5E1" stroke-width="1"/>
+          <line x1="412.6" y1="451" x2="419.6" y2="451" stroke="#CBD5E1" stroke-width="1"/>
+          <!-- charging led + floor plate -->
+          <circle class="smoke-led" cx="419.8" cy="439" r="1.5" fill="#F97316"/>
+          <line x1="403.6" y1="464.4" x2="436" y2="464.4" stroke="#CBD5E1" stroke-width="1.3" stroke-linecap="round"/>
           <text x="420" y="482" text-anchor="middle" class="lbl">Robot</text>
           <text x="420" y="495" text-anchor="middle" class="lbl">Vacuum</text>
         </g>
@@ -1068,7 +1067,7 @@
     }
   }
 
-  /* robot vacuum: horizontal capsule slides into a vertical dock with a bottom-left opening */
+  /* robot vacuum: slides out of the dock and returns; the left-side notch is the entrance */
   .eco-vac {
     animation: eco-vac 4.6s ease-in-out infinite;
   }
